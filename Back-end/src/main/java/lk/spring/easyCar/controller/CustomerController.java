@@ -10,7 +10,6 @@ public class CustomerController {
 
     @PostMapping
     public String saveCustomer(String name){
-        System.out.println("name : "+name);
-        return "Done"+" : "+name;
+       return null;
     }
 }
