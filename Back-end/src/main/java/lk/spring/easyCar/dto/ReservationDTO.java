@@ -3,7 +3,7 @@ package lk.spring.easyCar.dto;
 import java.util.Date;
 
 public class ReservationDTO {
-    private String resId;
+    private int resId;
     private Date pickupDate;
     private Double time;
     private Date returnDate;
@@ -15,7 +15,7 @@ public class ReservationDTO {
     public ReservationDTO() {
     }
 
-    public ReservationDTO(String resId, Date pickupDate, Double time, Date returnDate, String status, int customerId, int vehicleCode, int driverId) {
+    public ReservationDTO(int resId, Date pickupDate, Double time, Date returnDate, String status, int customerId, int vehicleCode, int driverId) {
         this.resId = resId;
         this.pickupDate = pickupDate;
         this.time = time;
@@ -26,11 +26,11 @@ public class ReservationDTO {
         this.driverId = driverId;
     }
 
-    public String getResId() {
+    public int getResId() {
         return resId;
     }
 
-    public void setResId(String resId) {
+    public void setResId(int resId) {
         this.resId = resId;
     }
 
