@@ -1,0 +1,75 @@
+#navBar{
+    background-color: darkcyan;
+    height: 55px;
+}
+
+#logoImage{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    margin-top: 2px;
+}
+
+#navBar>div>a>h3{
+    margin-top: 8px;
+    color: aliceblue;
+}
+
+#middleImage{
+    width: 100%;
+    height: 600px;
+    opacity: 50%;
+}
+
+#headLine{
+    position: absolute;
+    top: 17%;
+    left: 38%;
+    background-color: rgb(6, 33, 75);
+    color: aliceblue;
+}
+
+#middleDiv{
+    position: absolute;
+    top: 30%;
+    width: 100%;
+    height: 400px;
+}
+
+#card{
+    background-color: rgb(7, 100, 69, 0.5);
+}
+
+#rwList>div>input{
+    border-radius: 10px;
+}
+
+#searchBtn{
+    border-radius: 20px;
+    background-color: rgb(136, 240, 191);
+    border: 1px solid white;
+    width: 200px;
+    height: 50px;
+}
+
+#vehicleFeed{
+    background-color: darkslategrey;
+    height: 400px;
+}
+
+#callIcon{
+    position: fixed;
+    width: 75px;
+    height: 75px;
+    border-radius: 50px;
+    border: 8px solid rgb(4, 83, 70);
+    top: 85%;
+    left: 90%;
+}
+
+#callLogo{
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    margin: 0%;
+}

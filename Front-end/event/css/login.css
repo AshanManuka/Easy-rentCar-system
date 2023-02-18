@@ -1,0 +1,47 @@
+body{
+    background-color: rgb(27, 47, 51);
+}
+
+#freeDivOne{
+    height: 160px;
+}
+
+#freeDivTwo,#freeDivThree{
+    height: 50px;
+    background-color: rgb(27, 47, 51);
+}
+
+main{
+    background-color: rgb(17, 93, 109);
+}
+
+#contentDiv{
+    background-color: rgb(27, 47, 51);
+    border-radius: 10px;
+}
+
+#contentSection>div>div>label>h3{
+    color: aliceblue;
+}
+
+#btnDiv>button{
+    border-radius: 25px;
+    width: 12vw;
+    height: 8vh;
+    margin-left: 2vw;
+    border: rgb(245, 186, 237) 2px solid ;
+}
+
+#loginBtn{
+    background-color: rgb(119, 245, 224);
+}
+
+#cancelBtn{
+    background-color: rgb(247, 79, 79);
+}
+
+#freeDivOne>h1{
+    position: relative;
+    color: aliceblue;
+    left: 40%;
+}

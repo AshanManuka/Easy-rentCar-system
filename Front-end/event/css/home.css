@@ -1,0 +1,61 @@
+#mainForm{
+    background : linear-gradient(rgb(255,255,255),rgb(0,0,0));
+}
+
+#upperDivOne{
+    height: 50px;
+}
+
+#imgLogo{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    border: 1px solid black;
+}
+
+#mainHOne{
+    font-family: Fantasy;
+    background-color: rgb(183, 228, 228);
+    color: crimson;
+    font-size: 45px;
+}
+
+#descDiv{
+    background-color: rgba(218, 236, 245, 0.4);
+    border-radius: 5px;
+    
+}
+
+#upperDivTwo{
+    height: 90px;
+}
+
+#upperDivThree{
+    height: 10px;
+    background-color: rgb(243, 240, 242);
+}
+
+#btnSection{
+    background-color:rgb(27, 47, 51);
+}
+
+#btnDiv>b>h2{
+    color: aliceblue;
+    margin-left: 8vw;
+}
+
+#btnDiv>a>button{
+    position: relative;
+    border-radius: 20px;
+    background-color: rgb(48, 245, 153);
+    border-color: aliceblue;
+    width: 250px;
+    height: 60px;
+    margin-left: 14vw;
+    
+}
+
+#orH{
+    margin-left: 22vw;
+    color: aliceblue;
+}

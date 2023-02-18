@@ -10,6 +10,6 @@ public class CustomerController {
 
     @PostMapping
     public String saveCustomer(String name){
-       return null;
+       return name;
     }
 }
