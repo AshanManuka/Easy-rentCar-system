@@ -7,8 +7,8 @@
 }
 
 #imgLogo{
-    width : 70px;
-    height: 70px;
+    width : 60px;
+    height: 60px;
     border-radius: 50px;
     margin-top: 5px;
 }
@@ -59,7 +59,7 @@
     margin-left: 15%;
 }
 
-#leftSec>div>button{
+#leftSec>div>a>button{
     width: 60%;
     height: 65%;
     background-color: #021224;
@@ -69,6 +69,31 @@
     border-radius: 20px;
 }
 
-#leftSec>div>button>h4{
+#leftSec>div>a>button>h4{
+    color: white;
+}
+
+#cardId{
+    width : 90%;
+    height: 90%;
+    left: 5%;
+    top: 5%;
+    background-color: darkslategray;
+}
+
+#mainBtnDiv>div>a>button{
+    width: 100%;
+    height: 60%;
+    background-color: #021224;
+    border: white solid 2px;
+    margin-top: 10%;
+    border-radius: 20px;
+}
+
+#mainBtnDiv>div{
+    height: 50%;
+}
+
+#mainBtnDiv>div>a>button>h4{
     color: white;
 }
