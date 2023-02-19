@@ -1,0 +1,57 @@
+#twofreeDivOne{
+    height: 70px;
+}
+
+#twofreeDivTwo,#twofreeDivThree{
+    height: 50px;
+    background-color: rgb(27, 47, 51);
+}
+
+#mainTwo{
+    background-color: rgb(17, 93, 109);
+    width: 98%;
+}
+
+#twocontentDiv{
+    background-color: rgb(27, 47, 51);
+    border-radius: 10px;
+}
+
+#twocontentSection>div>div>label>h3{
+    color: aliceblue;
+}
+
+#twobtnDiv>button{
+    border-radius: 25px;
+    width: 25vw;
+    height: 10vh;
+    margin-left: 2vw;
+    border: rgb(245, 186, 237) 2px solid ;
+}
+
+#twologinBtn{
+    background-color: rgb(7, 133, 112);
+}
+
+#DeleteBtn{
+    background-color: rgb(133, 14, 14);
+}
+
+#twoclearBtn{
+    background-color: rgb(71, 75, 20);
+}
+
+#twoShowBtn{
+    background-color: rgb(234, 241, 125);
+
+}
+
+#freeDevSign{
+    height: 100px;
+}
+
+#freeDevSign>h2{
+    color: antiquewhite;
+    font-size: 40px;
+}
+
