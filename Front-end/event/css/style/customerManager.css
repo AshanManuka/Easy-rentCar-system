@@ -1,0 +1,29 @@
+main{
+    background : linear-gradient(rgb(51,153,255), rgb(116, 184, 184));
+}
+
+#reqSection{
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-bottom: 50px;
+}
+
+#freeDiv{
+    height: 30px;
+}
+
+#reqList{
+    height: auto;
+    width: 70%;
+    left: 10%;
+    background-color: #7fbaf5;
+}
+
+.freeDivTwo{
+    height: 50px;
+}
+
+#h{
+    margin-left: 38%;
+}
