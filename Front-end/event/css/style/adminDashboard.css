@@ -1,0 +1,74 @@
+#navDiv{
+    position : relative;
+    height: 10%;
+    width : 100%;
+    margin: 0;
+    background-color: #2c3034;
+}
+
+#imgLogo{
+    width : 70px;
+    height: 70px;
+    border-radius: 50px;
+    margin-top: 5px;
+}
+
+#navDiv>div>h1{
+    color: honeydew;
+    margin-left: 20%;
+    margin-top: 2%;
+}
+
+#navDiv>div>button>h5{
+    color: #eef0f3;
+}
+
+#navDiv>div>button{
+    background-color: #6c0a0a;
+    border-radius: 50px;
+    border: 1px solid #686161;
+    width: 90%;
+    height: 70%;
+    margin-top: 8%;
+}
+
+#mainForm{
+    position: relative;
+    height: 585px;
+    margin : 0;
+}
+#leftSec{
+    background-color: #084e9a;
+}
+
+#rightSec{
+    background: linear-gradient(rgb(51,153,255), rgb(116, 184, 184));
+
+}
+
+#leftSec>div{
+    height: 15%;
+}
+
+#leftSec>#divOne{
+    height: 20%;
+}
+
+#leftSec>#divOne>h3{
+    margin-top: 8%;
+    margin-left: 15%;
+}
+
+#leftSec>div>button{
+    width: 60%;
+    height: 65%;
+    background-color: #021224;
+    border: white solid 2px;
+    margin-left: 20%;
+    margin-top: 10%;
+    border-radius: 20px;
+}
+
+#leftSec>div>button>h4{
+    color: white;
+}

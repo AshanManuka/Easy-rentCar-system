@@ -1,38 +1,31 @@
 package lk.spring.easyCar.controller;
 
-import lk.spring.easyCar.dto.AdminDTO;
+import lk.spring.easyCar.dto.ScheduleDTO;
 import lk.spring.easyCar.util.ResponseUtil;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/admin")
-public class AdminController {
+@RequestMapping("/schedule")
+public class ScheduleController {
 
     @PostMapping
-    public ResponseUtil saveAdmin(@ModelAttribute AdminDTO dto){
+    public ResponseUtil makeSchedule(@ModelAttribute ScheduleDTO dto){
         return null;
     }
 
     @DeleteMapping(params = "id")
-    public ResponseUtil deleteAdmin(String id){
+    public ResponseUtil deleteSchedule(String id){
         return null;
     }
 
     @PutMapping
-    public ResponseUtil updateAdmin(){
+    public ResponseUtil updateSchedule(){
         return null;
     }
 
     @GetMapping
-    public ResponseUtil getAllAdmin(){
+    public ResponseUtil getAllSchedule(){
         return null;
     }
-
-
-
-
-
-
-
 }
