@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car-Manager</title>
+    <meta name="viewport" content="width=device-width initial-scale=1 user-scalable=no">
+    <link rel="stylesheet" href="../../event/css/style/normalize.css">
+    <link rel="stylesheet" href="../../event/css/style/carManager.css">
+    <link rel="stylesheet" href="../../event/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../../event/fonts/css/all.css">
+</head>
+<body>
+<section id="navSec" class="row">
+    <div class="col-3" id="addCarBtn"><button><h3><b>Add Cars</b></h3></button></div>
+    <div class="col-3" id="searchCarBtn"><button><h3><b>Search Cars</b></h3></button></div>
+    <div class="col-3" id="updateCarBtn"><button><h3><b>Update Cars</b></h3></button></div>
+    <div class="col-3" id="deleteCarBtn"><button><h3><b>Delete Cars</b></h3></button></div>
+</section>
+
+<section id="mainSec">
+    <img src="../../event/images/stylish-elegant-woman-car-salon.jpg" alt="bg" id="bgImage">
+
+<!--save Car-->
+    <section id="saveSec">
+        <div class="card" id="saveCard">
+           <div class="row"><h1><b>Save Cars</b></h1></div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-group">
+                        <label><h2><b>Input Data ,</b></h2></label>
+                        <br>
+                        <input class="form-control" id="brand" placeholder="Brand" required type="text">
+                        <span class="control-error" id="one"></span>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <input class="form-control" id="type" placeholder="Type" required type="text">
+                        <span class="control-error" id="two"></span>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <input class="form-control" id="color" placeholder="Colour" required type="text">
+                        <span class="control-error" id="three"></span>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <input class="form-control" id="DRate" placeholder="Daily Rate" required type="text">
+                        <span class="control-error" id="four"></span>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <input class="form-control" id="mRate" placeholder="Monthly Rate" required type="text">
+                        <span class="control-error" id="Five"></span>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <input class="form-control" id="exPrice" placeholder="Price Fro Extra KM" required type="text">
+                        <span class="control-error" id="six"></span>
+                    </div>
+
+                </div>
+                <div class="col-4" id="selectionDiv">
+                    <div class="row" id="freeOne"></div>
+                    <label for="transition"><h3><b>Transition Type :</b></h3></label>
+                    <select name="driver" id="transition">
+                        <option value="manual">Manual</option>
+                        <option value="auto">Auto</option>
+                    </select>
+                    <br>
+                    <br>
+                    <label for="fuel"><h3><b>Fuel Type :</b></h3></label>
+                    <select name="fuel" id="fuel">
+                        <option value="diesel">Diesel</option>
+                        <option value="petrol">Petrol</option>
+                    </select>
+                    <br>
+                    <br>
+                    <label for="passenger"><h3><b>No Passenger :</b></h3></label>
+                    <select name="passnger" id="passenger">
+                        <option value="2">2</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                    <br><br><br>
+                    <div class="form-group">
+                        <label><h3><b>Input Images</b></h3></label>
+                        <input class="form-control" id="imgs" placeholder="Insert 5 Images" required type="file">
+                        <span class="control-error" id="seven"></span>
+                    </div>
+                    <br>
+                    <label><b>| 01</b></label>
+                    <input class="form-check-input" type="checkbox" id="checkOne" value="" aria-label="...">
+                    <label><b> | 02</b></label>
+                    <input class="form-check-input" type="checkbox" id="checkTwo" value="" aria-label="...">
+                    <label><b> | 03</b></label>
+                    <input class="form-check-input" type="checkbox" id="checkThree" value="" aria-label="...">
+                    <label><b> | 04</b></label>
+                    <input class="form-check-input" type="checkbox" id="checkFour" value="" aria-label="...">
+                    <label><b> | 05</b></label>
+                    <input class="form-check-input" type="checkbox" id="checkFive" value="" aria-label="...">
+
+
+
+
+
+                </div>
+                <div class="col-4"></div>
+
+            </div>
+
+        </div>
+
+
+    </section>
+<!--save Car-->
+
+</section>
+
+</body>
+</html>
