@@ -1,0 +1,30 @@
+
+#mainForm{
+    /*background: linear-gradient(rgb(51,153,255), rgb(116, 184, 184));;*/
+}
+
+#headText{
+    position : relative;
+    padding-left : 33%;
+}
+
+#reqBtn{
+    background-color: #e0a55d;
+    border-radius: 20px;
+    border : #2c3034 2px solid;
+    width: 100%;
+    height: 50px;
+}
+
+#freeDivTwo{
+    height: 100px;
+}
+
+#freeDivThree{
+    height: 50px;
+}
+
+#freeDivOne>h2{
+    width: 40%;
+    margin-left : 35%;
+}
