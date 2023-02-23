@@ -1,7 +1,10 @@
 package lk.spring.easyCar.controller;
 
 import lk.spring.easyCar.dto.DriverDTO;
+import lk.spring.easyCar.entity.Driver;
+import lk.spring.easyCar.repo.DriverRepo;
 import lk.spring.easyCar.util.ResponseUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -9,9 +12,15 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/driver")
 public class DriverController {
 
+    @Autowired
+    DriverRepo repo;
+
     @PostMapping
-    public ResponseUtil saveDriver(@ModelAttribute DriverDTO dto){
-        return null;
+    public ResponseUtil saveDriver(@RequestBody DriverDTO dto){
+        Driver driver = new Driver(dto.getNic(),dto.getName(),dto.getAddress());
+        System.out.println(driver);
+        repo.save(driver);
+        return new ResponseUtil("200",dto.getName()+ " Added.!",null);
     }
 
     @DeleteMapping(params = "id")

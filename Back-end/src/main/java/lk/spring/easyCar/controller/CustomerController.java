@@ -1,7 +1,10 @@
 package lk.spring.easyCar.controller;
 
 import lk.spring.easyCar.dto.CustomerDTO;
+import lk.spring.easyCar.entity.Customer;
+import lk.spring.easyCar.repo.CustomerRepo;
 import lk.spring.easyCar.util.ResponseUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -11,9 +14,14 @@ import java.util.ArrayList;
 @RequestMapping("/customer")
 public class CustomerController {
 
+    @Autowired
+    CustomerRepo repo;
+
     @PostMapping
     public ResponseUtil saveCustomer(@ModelAttribute CustomerDTO dto){
-       return null;
+       Customer customer = new Customer(dto.getRegisterId(),dto.getEmail(),dto.getName(),dto.getContact(),dto.getDocId(),dto.getPassword());
+        repo.save(customer);
+        return null;
     }
 
     @GetMapping
