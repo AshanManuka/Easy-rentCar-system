@@ -16,6 +16,14 @@
     height: 50px;
 }
 
+#driverBtn{
+    background-color: #e0de5d;
+    border-radius: 20px;
+    border : #2c3034 2px solid;
+    width: 100%;
+    height: 50px;
+}
+
 #freeDivTwo{
     height: 100px;
 }
@@ -24,7 +32,8 @@
     height: 50px;
 }
 
-#freeDivOne>h2{
-    width: 40%;
+#freeDivTwo>h2{
+    position: relative;
+    width: 45%;
     margin-left : 35%;
 }
