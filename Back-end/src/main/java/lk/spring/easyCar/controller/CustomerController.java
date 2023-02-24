@@ -1,13 +1,9 @@
 package lk.spring.easyCar.controller;
 
-import lk.spring.easyCar.dto.CustomerDTO;
-import lk.spring.easyCar.entity.Customer;
 import lk.spring.easyCar.repo.CustomerRepo;
 import lk.spring.easyCar.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
 
 @RestController
 @CrossOrigin

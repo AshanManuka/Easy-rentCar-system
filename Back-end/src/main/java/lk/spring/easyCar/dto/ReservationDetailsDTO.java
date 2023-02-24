@@ -1,5 +1,7 @@
 package lk.spring.easyCar.dto;
 
+import lk.spring.easyCar.entity.Car;
+import lk.spring.easyCar.entity.Driver;
 import lk.spring.easyCar.entity.Reservation;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,9 +15,13 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class PaymentDTO {
+public class ReservationDetailsDTO {
     private int id;
-    private LocalDate date;
-    private Double value;
+    private LocalDate pickupDate;
+    private String pickupLocation;
+    private LocalDate finishDate;
+    private String finishLocation;
     private Reservation reservation;
+    private Car car;
+    private Driver driver;
 }

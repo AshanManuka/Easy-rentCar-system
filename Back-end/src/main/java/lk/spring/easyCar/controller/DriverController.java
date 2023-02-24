@@ -1,7 +1,5 @@
 package lk.spring.easyCar.controller;
 
-import lk.spring.easyCar.dto.DriverDTO;
-import lk.spring.easyCar.entity.Driver;
 import lk.spring.easyCar.repo.DriverRepo;
 import lk.spring.easyCar.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;

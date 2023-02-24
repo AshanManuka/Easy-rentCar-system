@@ -1,23 +1,25 @@
 package lk.spring.easyCar.dto;
 
+import lk.spring.easyCar.entity.Payment;
+import lk.spring.easyCar.entity.ReservationDetails;
+import lk.spring.easyCar.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.List;
+
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @ToString
 public class ReservationDTO {
-    private int resId;
-    private Date pickupDate;
-    private Double time;
-    private Date returnDate;
-    private String status;
-    private int customerId;
-    private int vehicleCode;
-    private int driverId;
+    private int id;
+    private LocalDate date;
+    private User user;
+    private List<Payment> paymentList;
+    private List<ReservationDetails> reservationDetailsList;
 }

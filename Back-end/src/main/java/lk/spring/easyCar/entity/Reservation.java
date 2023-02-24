@@ -4,44 +4,31 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
+
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @ToString
-@Entity(name = "reservation")
+@Entity
 public class Reservation {
     @Id
-    private int resId;
-    private Date pickupDate;
-    private Double time;
-    private Date returnDate;
-    private String status;
-    private int driverId;
+    private int id;
 
-    @OneToMany(mappedBy = "reservation",cascade = CascadeType.ALL)
-    private List<Payment> payments;
+    private LocalDate date;
 
     @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.DETACH})
-    @JoinColumn(name = "customerId", referencedColumnName = "registerId",nullable = false)
-    private Customer customer;
+    @JoinColumn(name = "userId", referencedColumnName = "id",nullable = false)
+    private User user;
 
-    @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.DETACH})
-    @JoinColumn(name = "carId", referencedColumnName = "registerCode",nullable = false)
-    private Vehicle vehicle;
+    @OneToMany(mappedBy = "reservation", cascade = CascadeType.ALL)
+    private List<Payment> paymentList;
 
-    @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.DETACH})
-    @JoinColumn(name = "driverId", referencedColumnName = "nic",nullable = false)
-    private Driver driver;
-
-
-
-
-
+    @OneToMany(mappedBy = "reservation", cascade = CascadeType.ALL)
+    private List<ReservationDetails> reservationDetailsList;
 
 }

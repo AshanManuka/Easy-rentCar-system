@@ -5,26 +5,27 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
+
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @ToString
-@Entity(name = "driver")
+@Entity
 public class Driver {
     @Id
-    private String nic;
+    private Long id;
     private String name;
+    private String contact;
+    private String email;
     private String address;
 
     @OneToMany(mappedBy = "driver",cascade = CascadeType.ALL)
-    private List<Reservation> reservations;
+    private List<ReservationDetails> reservationDetailsList;
 
-    @OneToMany(mappedBy = "driver",cascade = CascadeType.ALL)
-    private List<Schedule> schedules;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "scheduleId", referencedColumnName = "id")
+    private Schedule schedule;
 }
