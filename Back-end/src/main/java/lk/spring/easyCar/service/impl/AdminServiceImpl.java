@@ -1,6 +1,10 @@
 package lk.spring.easyCar.service.impl;
 
 import lk.spring.easyCar.dto.AdminDTO;
+import lk.spring.easyCar.entity.Admin;
+import lk.spring.easyCar.entity.Car;
+import lk.spring.easyCar.entity.User;
+import lk.spring.easyCar.repo.AdminRepo;
 import lk.spring.easyCar.repo.CustomerRepo;
 import lk.spring.easyCar.service.AdminService;
 import org.modelmapper.ModelMapper;
@@ -15,7 +19,7 @@ import java.util.ArrayList;
 public class AdminServiceImpl implements AdminService {
 
     @Autowired
-    private CustomerRepo repo;
+    private AdminRepo repo;
 
     @Autowired
     private ModelMapper mapper;
@@ -23,7 +27,11 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public void saveAdmin(AdminDTO dto) {
-
+//        if (repo.existsById(dto.getId())) {
+//            throw new RuntimeException("Admin "+dto.getId()+" Already Exist..!");
+//        }
+         repo.save(mapper.map(dto,Admin.class));
+        System.out.println(dto);
     }
 
     @Override
