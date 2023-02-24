@@ -1,7 +1,7 @@
 package lk.spring.easyCar.controller;
 
 import lk.spring.easyCar.dto.UserDTO;
-import lk.spring.easyCar.repo.CustomerRepo;
+import lk.spring.easyCar.service.CustomerService;
 import lk.spring.easyCar.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,12 +11,10 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/customer")
 public class CustomerController {
 
-    @Autowired
-    CustomerRepo repo;
 
     @PostMapping
     public ResponseUtil saveCustomer(@ModelAttribute UserDTO dto){
-
+//        service.saveCustomer(dto);
         return null;
     }
 
