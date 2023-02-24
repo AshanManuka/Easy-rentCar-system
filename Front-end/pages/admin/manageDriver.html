@@ -113,11 +113,20 @@
             data:JSON.stringify(driver),
             dataType:"json",
             success: function (res) {
-                alert(res.message);
+                Swal.fire(
+                    'Saved Driver!',
+                    res.message,
+                    'success'
+                )
             },
             error:function (error){
                 let cause= JSON.parse(error.responseText).message;
-                alert(cause);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Not Saved...',
+                    text: 'Something went wrong!',
+                    footer: '<a href="#">Why do I have this issue?</a>'
+                })
             }
 
         });
