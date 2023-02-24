@@ -1,4 +1,17 @@
 package lk.spring.easyCar.service;
 
-public class CustomerService {
+import lk.spring.easyCar.dto.UserDTO;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public interface CustomerService {
+    public void saveCustomer(UserDTO dto);
+
+    public void deleteCustomer(int id);
+
+    public void updateCustomer(UserDTO dto);
+
+    public ArrayList<UserDTO> getAllCustomer();
+
 }
