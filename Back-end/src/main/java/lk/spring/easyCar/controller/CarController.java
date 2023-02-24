@@ -1,5 +1,6 @@
 package lk.spring.easyCar.controller;
 
+import lk.spring.easyCar.dto.CarDTO;
 import lk.spring.easyCar.util.ResponseUtil;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 public class CarController {
 
     @PostMapping
-    public ResponseUtil saveCar(@ModelAttribute VehicleDTO dto){
+    public ResponseUtil saveCar(@ModelAttribute CarDTO dto){
         return null;
     }
 

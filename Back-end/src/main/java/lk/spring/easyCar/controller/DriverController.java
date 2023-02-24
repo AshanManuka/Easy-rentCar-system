@@ -1,5 +1,6 @@
 package lk.spring.easyCar.controller;
 
+import lk.spring.easyCar.dto.DriverDTO;
 import lk.spring.easyCar.repo.DriverRepo;
 import lk.spring.easyCar.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +16,9 @@ public class DriverController {
 
     @PostMapping
     public ResponseUtil saveDriver(@RequestBody DriverDTO dto){
-        Driver driver = new Driver(dto.getNic(),dto.getName(),dto.getAddress());
-        System.out.println(driver);
-        repo.save(driver);
+//        Driver driver = new Driver(dto.getNic(),dto.getName(),dto.getAddress());
+//        System.out.println(driver);
+//        repo.save(driver);
         return new ResponseUtil("200",dto.getName()+ " Added.!",null);
     }
 

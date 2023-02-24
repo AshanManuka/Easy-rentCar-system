@@ -1,5 +1,6 @@
 package lk.spring.easyCar.controller;
 
+import lk.spring.easyCar.dto.AdminDTO;
 import lk.spring.easyCar.util.ResponseUtil;
 import org.springframework.web.bind.annotation.*;
 
