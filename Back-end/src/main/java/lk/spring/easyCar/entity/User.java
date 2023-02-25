@@ -25,17 +25,12 @@ import java.util.List;
 @Entity
 public class User {
     @Id
-    private Long id;
+    private int id;
     private String userName;
     private String password;
     private String email;
     private String contact;
-    private String nicNo;
-    private byte[] nicImageFront;
-    private byte[] nicImageBack;
-    private String drivingLicenseNo;
-    private byte[] drivingLicenseImageFront;
-    private byte[] drivingLicenseImageBack;
+    private String nicImage;
 
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
     private List<Reservation> reservationList;

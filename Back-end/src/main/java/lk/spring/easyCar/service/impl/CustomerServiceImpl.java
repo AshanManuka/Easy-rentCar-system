@@ -4,6 +4,7 @@ import lk.spring.easyCar.dto.UserDTO;
 import lk.spring.easyCar.repo.CustomerRepo;
 import lk.spring.easyCar.service.CustomerService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,6 +39,6 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public ArrayList<UserDTO> getAllCustomer() {
-        return null;
+        return mapper.map(repo.findAll(), new TypeToken<ArrayList<UserDTO>>() {}.getType());
     }
 }

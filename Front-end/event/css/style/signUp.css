@@ -23,7 +23,7 @@
     color: aliceblue;
 }
 
-#twobtnDiv>button{
+#twobtnDiv>a>button{
     border-radius: 25px;
     width: 25vw;
     height: 10vh;

@@ -6,8 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.CascadeType;
-import javax.persistence.OneToMany;
 import java.util.List;
 
 
@@ -21,12 +19,8 @@ public class UserDTO {
     private String password;
     private String email;
     private String contact;
-    private String nicNo;
-    private byte[] nicImageFront;
-    private byte[] nicImageBack;
-    private String drivingLicenseNo;
-    private byte[] drivingLicenseImageFront;
-    private byte[] drivingLicenseImageBack;
+    private String nicImage;
+
 
     private List<Reservation> reservationList;
 }
