@@ -3,14 +3,6 @@
     let baseURL = "http://localhost:8080/app/";
 
 
-
-
-$("#twologinBtn").click(function(){
-    saveCustomer();
-});
-
-
-
 // ======================== Save Customer ========================================
  let lastId;
 checkLastId();
@@ -31,23 +23,26 @@ function checkLastId(){
     });
 }
 
+$("#twologinBtn").click(function(){
+    saveCustomer();
+});
+
 function saveCustomer(){
 
     let cusId = parseInt(lastId)+1;
-    alert("last Id : "+cusId);
     let name = $("#twotxtCusName").val();
     let eMail = $("#twotxtmail").val();
     let contact = $("#twotxtContact").val();
     let password = $("#twotxtPassword").val();
-    let file = $("#twoLicense")[0].files[0];
+    let file = $("#twoLicense").val();
 
     var customer = {
         id : cusId,
-        Name : name,
+        userName : name,
         Password : password,
-        Email : eMail,
-        Contact : contact,
-        image : file
+        email : eMail,
+        contact : contact,
+        nicImage : file
     }
 
     $.ajax({

@@ -13,7 +13,7 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @ToString
 @Entity
-public class pendingCustomer {
+public class PendingCustomer {
     @Id
     private int id;
     private String userName;

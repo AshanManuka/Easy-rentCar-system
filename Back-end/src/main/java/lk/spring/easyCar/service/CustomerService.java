@@ -3,7 +3,6 @@ package lk.spring.easyCar.service;
 import lk.spring.easyCar.dto.UserDTO;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public interface CustomerService {
     public void saveCustomer(UserDTO dto);

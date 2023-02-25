@@ -1,7 +1,6 @@
 package lk.spring.easyCar.controller;
 
 import lk.spring.easyCar.dto.UserDTO;
-import lk.spring.easyCar.service.AdminService;
 import lk.spring.easyCar.service.CustomerService;
 import lk.spring.easyCar.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +16,13 @@ public class CustomerController {
     @Autowired
     private CustomerService service;
 
+
+
     @PostMapping
     public ResponseUtil saveCustomer(@ModelAttribute UserDTO dto){
-//        service.saveCustomer(dto);
-        return null;
+        service.saveCustomer(dto);
+        System.out.println(dto);
+        return new ResponseUtil("200",dto.getId()+ " Added.!",null);
     }
 
     @GetMapping
