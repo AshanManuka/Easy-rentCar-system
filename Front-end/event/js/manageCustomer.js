@@ -112,12 +112,25 @@ $("#acceptBtn").click(function () {
         });
     }
 
-
-
-
+    deleteRequests();
 
 });
 
 
+// ======================== Delete Requests ===========================
+
+function deleteRequests() {
+    $.ajax({
+        url: baseUrl+"pendingCustomer",
+        method: "delete",
+        success: function (resp) {
+            alert(resp.message);
+        },
+        error: function (error) {
+            let message = JSON.parse(error.responseText).message;
+            alert(message);
+        }
+    });
+}
 
 

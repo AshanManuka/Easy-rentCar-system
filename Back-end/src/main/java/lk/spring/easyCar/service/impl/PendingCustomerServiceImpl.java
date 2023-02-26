@@ -33,8 +33,8 @@ public class PendingCustomerServiceImpl implements PendingCustomerService {
     }
 
     @Override
-    public void deleteCustomer(int id) {
-
+    public void deleteCustomer() {
+        Repo.deleteAll();
     }
 
     @Override

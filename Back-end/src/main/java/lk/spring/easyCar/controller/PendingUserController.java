@@ -30,5 +30,11 @@ public class PendingUserController {
         return new ResponseUtil("200"," Success.!",allCustomers);
     }
 
+    @DeleteMapping
+    public ResponseUtil deleteAllRequest(){
+        service.deleteCustomer();
+        return new ResponseUtil("200", "Successfully Deleted", null);
+    }
+
 
 }
