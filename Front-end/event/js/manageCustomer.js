@@ -7,7 +7,10 @@ let requestList = [];
 
 
 loadPendingCustomer();
+loadAllCustomers();
 
+
+// ================== Pending Customers=========================
 function loadPendingCustomer(){
 
     let imgStatus = "-";
@@ -55,6 +58,37 @@ function loadPendingCustomer(){
 
 }
 
+
+// ====================== All Customers ===================
+
+function loadAllCustomers(){
+    $.ajax({
+        url: baseURL+'customer',
+        method: 'get',
+        dataType: "json",
+        success: function (resp) {
+            for (let c of resp.data) {
+                let cId = c.id;
+                let cName = c.userName;
+                let cMail = c.email;
+                let cContact = c.contact;
+
+                var row = "<tr><td>" + cId + "</td><td>" + cName + "</td><td>" + cMail + "</td><td>" + cContact + "</td><td>" + `<button value="sample" style="border-radius: 50px; border: #b6d4fe 2px black"><i class="fa-solid fa-trash"></i></button>` + "</td></tr>";
+                $("#cusTable").append(row);
+
+
+            }
+        }
+    });
+}
+
+
+
+
+
+
+
+// ========================= Accept All Requests ========================
 $("#acceptBtn").click(function () {
 
 
