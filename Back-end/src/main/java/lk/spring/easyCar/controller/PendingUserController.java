@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.*;
 public class PendingUserController {
 
     @Autowired
-    private PendingCustomerService pendingService;
+    private PendingCustomerService service;
 
     @PostMapping
-    public ResponseUtil saveCustomer(@ModelAttribute PendingCustomerDTO dto){
+    public ResponseUtil saveCustomer(@RequestBody PendingCustomerDTO dto){
         System.out.println(dto);
-        pendingService.savePendingCustomer(dto);
+        service.savePendingCustomer(dto);
         return new ResponseUtil("200",dto.getId()+ " Added.!",null);
     }
 

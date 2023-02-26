@@ -4,32 +4,35 @@
 
 
 // ======================== Save Customer ========================================
- let lastId;
-checkLastId();
-
-function checkLastId(){
-
-    $.ajax({
-        url: baseURL+"customer",
-        method: 'get',
-        dataType: "json",
-        success: function (resp) {
-            const idList = [0];
-            for (let cus of resp.data) {
-                idList.push(cus.id);
-            }
-            lastId = idList.slice(-1);
-        }
-    });
-}
+//  var lastId;
+// checkLastId();
+//
+// function checkLastId(){
+//
+//     $.ajax({
+//         url: baseURL+"pendingCustomer",
+//         method: 'get',
+//         dataType: "json",
+//         success: function (resp) {
+//             const idList = [0];
+//             for (let cus of resp.data) {
+//                 idList.push(cus.id);
+//             }
+//             lastId = idList.slice(-1);
+//             console.log("in first method : "+lastId);
+//         }
+//     });
+// }
 
 $("#twologinBtn").click(function(){
+    //console.log("last id in clicking: "+lastId);
     saveCustomer();
 });
 
 function saveCustomer(){
-
-    let cusId = parseInt(lastId)+1;
+    //console.log("last save Customer: "+lastId)
+    // let cusId = parseInt(lastId)+1;
+    let cusId = 5;
     let name = $("#twotxtCusName").val();
     let eMail = $("#twotxtmail").val();
     let contact = $("#twotxtContact").val();
@@ -45,18 +48,22 @@ function saveCustomer(){
         nicImage : file
     }
 
+    console.log(customer);
+
     $.ajax({
-        url: baseURL+"customer",
-        method: "post",
-        data: customer,
+        url: baseURL+'pendingCustomer',
+        method: 'post',
+        contentType:"application/json",
+        data:JSON.stringify(customer),
         dataType:"json",
         success: function (res) {
             alert(res.message);
         },
-        error:function(error){
-            var jsObject=JSON.parse(error.responseText);
-            alert(jsObject.message);
+        error:function (error){
+            let cause= JSON.parse(error.responseText).message;
+            alert(cause);
         }
+
     });
 
 
