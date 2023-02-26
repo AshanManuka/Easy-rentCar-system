@@ -4,25 +4,25 @@
 
 
 // ======================== Save Customer ========================================
-//  var lastId;
-// checkLastId();
-//
-// function checkLastId(){
-//
-//     $.ajax({
-//         url: baseURL+"pendingCustomer",
-//         method: 'get',
-//         dataType: "json",
-//         success: function (resp) {
-//             const idList = [0];
-//             for (let cus of resp.data) {
-//                 idList.push(cus.id);
-//             }
-//             lastId = idList.slice(-1);
-//             console.log("in first method : "+lastId);
-//         }
-//     });
-// }
+ var lastId;
+checkLastId();
+
+function checkLastId(){
+
+    $.ajax({
+        url: baseURL+'pendingCustomer',
+        method: 'get',
+        dataType: "json",
+        success: function (resp) {
+            const idList = [0];
+            for (let cus of resp.data) {
+                idList.push(cus.id);
+            }
+            lastId = idList.slice(-1);
+            console.log("in first method : "+lastId);
+        }
+    });
+}
 
 $("#twologinBtn").click(function(){
     //console.log("last id in clicking: "+lastId);
@@ -31,8 +31,7 @@ $("#twologinBtn").click(function(){
 
 function saveCustomer(){
     //console.log("last save Customer: "+lastId)
-    // let cusId = parseInt(lastId)+1;
-    let cusId = 5;
+    let cusId = parseInt(lastId)+1;
     let name = $("#twotxtCusName").val();
     let eMail = $("#twotxtmail").val();
     let contact = $("#twotxtContact").val();

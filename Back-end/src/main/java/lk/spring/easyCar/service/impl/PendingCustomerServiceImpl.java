@@ -1,10 +1,12 @@
 package lk.spring.easyCar.service.impl;
 
 import lk.spring.easyCar.dto.PendingCustomerDTO;
+import lk.spring.easyCar.dto.UserDTO;
 import lk.spring.easyCar.entity.PendingCustomer;
 import lk.spring.easyCar.repo.PendingCustomerRepo;
 import lk.spring.easyCar.service.PendingCustomerService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,6 +44,6 @@ public class PendingCustomerServiceImpl implements PendingCustomerService {
 
     @Override
     public ArrayList<PendingCustomerDTO> getAllCustomer() {
-        return null;
+        return mapper.map(Repo.findAll(), new TypeToken<ArrayList<PendingCustomerDTO>>() {}.getType());
     }
 }
