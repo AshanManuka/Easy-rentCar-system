@@ -10,7 +10,7 @@ checkLastId();
 function checkLastId(){
 
     $.ajax({
-        url: baseURL+'pendingCustomer',
+        url: baseURL+'customer',
         method: 'get',
         dataType: "json",
         success: function (resp) {
@@ -19,6 +19,7 @@ function checkLastId(){
                 idList.push(cus.id);
             }
             lastId = idList.slice(-1);
+            alert(lastId);
         }
     });
 }

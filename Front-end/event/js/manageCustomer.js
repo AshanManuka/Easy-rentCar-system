@@ -121,7 +121,7 @@ $("#acceptBtn").click(function () {
 
 function deleteRequests() {
     $.ajax({
-        url: baseUrl+"pendingCustomer",
+        url: baseURL+"pendingCustomer",
         method: "delete",
         success: function (resp) {
             alert(resp.message);
