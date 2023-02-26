@@ -12,7 +12,10 @@
 <body>
 <main class="container-fluid">
     <section id="reqSection" class="row">
-        <div class="col-12"><h1><b>Customer Requests</b></h1></div>
+        <div class="col-12">
+            <h1 id="mainH"><b>Customer Requests</b></h1>
+            <button id="acceptBtn"><h4><b>Accept All</b></h4></button>
+        </div>
         <div class="col-12" id="freeDiv"></div>
         <div id="reqList" class="card"> </div>
     </section>
@@ -55,5 +58,7 @@
 
 </main>
 
+<script src="../../event/jQuery/jquery-3.6.1.min.js"></script>
+<script src="../../event/js/manageCustomer.js"></script>
 </body>
 </html>

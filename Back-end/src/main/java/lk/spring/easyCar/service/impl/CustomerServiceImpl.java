@@ -1,6 +1,7 @@
 package lk.spring.easyCar.service.impl;
 
 import lk.spring.easyCar.dto.UserDTO;
+import lk.spring.easyCar.entity.User;
 import lk.spring.easyCar.repo.CustomerRepo;
 import lk.spring.easyCar.service.CustomerService;
 import org.modelmapper.ModelMapper;
@@ -24,7 +25,10 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void saveCustomer(UserDTO dto) {
-
+        if (repo.existsById(dto.getId())) {
+            throw new RuntimeException("Customer "+dto.getId()+" Already Exist..!");
+        }
+        repo.save(mapper.map(dto, User.class));
     }
 
     @Override

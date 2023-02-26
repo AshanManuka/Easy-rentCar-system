@@ -19,7 +19,7 @@ public class UserDTO {
     private String password;
     private String email;
     private String contact;
-    private Byte[] nicImage;
+    private String nicImage;
 
 
     private List<Reservation> reservationList;
