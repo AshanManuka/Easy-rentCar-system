@@ -12,4 +12,6 @@ public interface DriverService {
     public void updateDriver(DriverDTO dto);
 
     public ArrayList<DriverDTO> getAllDriver();
+
+    public DriverDTO getSelectedDriver(String name);
 }

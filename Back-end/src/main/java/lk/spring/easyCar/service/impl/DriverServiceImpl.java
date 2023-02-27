@@ -3,7 +3,6 @@ package lk.spring.easyCar.service.impl;
 import lk.spring.easyCar.dto.DriverDTO;
 import lk.spring.easyCar.dto.UserDTO;
 import lk.spring.easyCar.entity.Driver;
-import lk.spring.easyCar.repo.CustomerRepo;
 import lk.spring.easyCar.repo.DriverRepo;
 import lk.spring.easyCar.service.DriverService;
 import org.modelmapper.ModelMapper;
@@ -46,5 +45,10 @@ public class DriverServiceImpl implements DriverService {
     @Override
     public ArrayList<DriverDTO> getAllDriver() {
         return mapper.map(repo.findAll(), new TypeToken<ArrayList<DriverDTO>>() {}.getType());
+    }
+
+    @Override
+    public DriverDTO getSelectedDriver(String name) {
+        return mapper.map( repo.findDriverByName(name), DriverDTO.class);
     }
 }

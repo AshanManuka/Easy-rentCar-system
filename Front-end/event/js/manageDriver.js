@@ -65,8 +65,6 @@ $("#twologinBtn").click(function(){
 
 
 // ==============load data to box============================
-
-
 function loadData(){
     $("#driver").empty();
 
@@ -80,4 +78,15 @@ function loadData(){
             }
         }
     });
+}
+
+// =======================select from box===================
+$('#driver').on('change', function() {
+    var selectedName = $(this).val();
+    loadDatatoField(selectedName);
+});
+
+
+function loadDatatoField(value){
+
 }

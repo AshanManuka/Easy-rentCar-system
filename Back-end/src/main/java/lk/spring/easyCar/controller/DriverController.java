@@ -43,4 +43,10 @@ public class DriverController {
         ArrayList<DriverDTO> allDrivers = service.getAllDriver();
         return new ResponseUtil("200"," Success.!",allDrivers);
     }
+
+    @GetMapping
+    public ResponseUtil getSelectedDriver(String name){
+        DriverDTO driver = service.getSelectedDriver(name);
+        return new ResponseUtil("200"," Success.!",driver);
+    }
 }
