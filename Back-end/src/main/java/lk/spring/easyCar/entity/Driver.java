@@ -16,7 +16,7 @@ import java.util.List;
 @Entity
 public class Driver {
     @Id
-    private Long id;
+    private int id;
     private String name;
     private String contact;
     private String email;

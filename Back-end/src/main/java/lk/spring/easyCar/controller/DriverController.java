@@ -1,10 +1,18 @@
 package lk.spring.easyCar.controller;
 
 import lk.spring.easyCar.dto.DriverDTO;
+import lk.spring.easyCar.dto.PendingCustomerDTO;
+import lk.spring.easyCar.entity.Driver;
+import lk.spring.easyCar.entity.User;
 import lk.spring.easyCar.repo.DriverRepo;
+import lk.spring.easyCar.service.DriverService;
+import lk.spring.easyCar.service.PendingCustomerService;
 import lk.spring.easyCar.util.ResponseUtil;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 
 @RestController
 @CrossOrigin
@@ -12,14 +20,12 @@ import org.springframework.web.bind.annotation.*;
 public class DriverController {
 
     @Autowired
-    DriverRepo repo;
+    private DriverService service;
 
     @PostMapping
     public ResponseUtil saveDriver(@RequestBody DriverDTO dto){
-//        Driver driver = new Driver(dto.getNic(),dto.getName(),dto.getAddress());
-//        System.out.println(driver);
-//        repo.save(driver);
-        return new ResponseUtil("200",dto.getName()+ " Added.!",null);
+        service.saveDriver(dto);
+        return new ResponseUtil("200",dto.getId()+ " Added.!",null);
     }
 
     @DeleteMapping(params = "id")
@@ -34,6 +40,7 @@ public class DriverController {
 
     @GetMapping
     public ResponseUtil getAllDriver(){
-        return null;
+        ArrayList<DriverDTO> allDrivers = service.getAllDriver();
+        return new ResponseUtil("200"," Success.!",allDrivers);
     }
 }

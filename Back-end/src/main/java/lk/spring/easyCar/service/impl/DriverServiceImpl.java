@@ -1,9 +1,13 @@
 package lk.spring.easyCar.service.impl;
 
 import lk.spring.easyCar.dto.DriverDTO;
+import lk.spring.easyCar.dto.UserDTO;
+import lk.spring.easyCar.entity.Driver;
 import lk.spring.easyCar.repo.CustomerRepo;
+import lk.spring.easyCar.repo.DriverRepo;
 import lk.spring.easyCar.service.DriverService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +19,7 @@ import java.util.ArrayList;
 public class DriverServiceImpl implements DriverService {
 
     @Autowired
-    private CustomerRepo repo;
+    private DriverRepo repo;
 
     @Autowired
     private ModelMapper mapper;
@@ -23,7 +27,10 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public void saveDriver(DriverDTO dto) {
-
+        if (repo.existsById(dto.getId())) {
+            throw new RuntimeException("Driver "+dto.getId()+" Already Exist..!");
+        }
+        repo.save(mapper.map(dto, Driver.class));
     }
 
     @Override
@@ -38,6 +45,6 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public ArrayList<DriverDTO> getAllDriver() {
-        return null;
+        return mapper.map(repo.findAll(), new TypeToken<ArrayList<DriverDTO>>() {}.getType());
     }
 }
