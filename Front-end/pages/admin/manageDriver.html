@@ -86,54 +86,6 @@
 
 </main>
 <script src="../../event/jQuery/jquery-3.6.1.min.js"></script>
-<script>
-
-    let baseUrl="http://localhost:8080/app/";
-
-
-
-    $("#twologinBtn").click(function(){
-
-        let cusName = $("#twotxtCusName").val();
-        let cusNic = $("#twotxtmail").val();
-        let cusAddress = $("#twotxtPassword").val();
-
-
-        var driver = {
-            nic : cusNic,
-            name : cusName,
-            address : cusAddress
-        }
-
-        console.log(driver);
-        $.ajax({
-            url: baseUrl+'driver',
-            method: 'post',
-            contentType:"application/json",
-            data:JSON.stringify(driver),
-            dataType:"json",
-            success: function (res) {
-                Swal.fire(
-                    'Saved Driver!',
-                    res.message,
-                    'success'
-                )
-            },
-            error:function (error){
-                let cause= JSON.parse(error.responseText).message;
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Not Saved...',
-                    text: 'Something went wrong!',
-                    footer: '<a href="#">Why do I have this issue?</a>'
-                })
-            }
-
-        });
-
-    });
-
-
-</script>
+<script src="../../event/js/manageDriver.js"></script>
 </body>
 </html>
