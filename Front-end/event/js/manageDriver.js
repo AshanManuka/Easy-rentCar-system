@@ -4,9 +4,11 @@ let baseURL="http://localhost:8080/app/";
 
 var lastId;
 checkLastId();
+loadData();
 
+
+// ================ checking last id================
 function checkLastId(){
-
     $.ajax({
         url: baseURL+'driver',
         method: 'get',
@@ -17,13 +19,13 @@ function checkLastId(){
                 idList.push(cus.id);
             }
             lastId = idList.slice(-1);
-            alert(lastId);
         }
     });
+
 }
 
 
-
+// ================== save Driver =======================
 $("#twologinBtn").click(function(){
 
     let driveId = parseInt(lastId)+1;
@@ -41,7 +43,6 @@ $("#twologinBtn").click(function(){
         address : cusAddress
     }
 
-    console.log(driver);
     $.ajax({
         url: baseURL+'driver',
         method: 'post',
@@ -50,6 +51,8 @@ $("#twologinBtn").click(function(){
         dataType:"json",
         success: function (res) {
             alert(res.message);
+            checkLastId();
+            loadData();
         },
         error:function (error){
             let cause= JSON.parse(error.responseText).message;
@@ -59,3 +62,22 @@ $("#twologinBtn").click(function(){
     });
 
 });
+
+
+// ==============load data to box============================
+
+
+function loadData(){
+    $("#driver").empty();
+
+    $.ajax({
+        url: baseURL+'driver',
+        method: 'get',
+        dataType: "json",
+        success: function (resp) {
+            for (let cus of resp.data) {
+                $("#driver").append(`<option>${cus.name}</option>`);
+            }
+        }
+    });
+}
