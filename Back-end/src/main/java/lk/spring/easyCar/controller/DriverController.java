@@ -44,8 +44,8 @@ public class DriverController {
         return new ResponseUtil("200"," Success.!",allDrivers);
     }
 
-    @GetMapping
-    public ResponseUtil getSelectedDriver(String name){
+    @GetMapping(path = "/{name}")
+    public ResponseUtil getSelectedDriver(@PathVariable String name){
         DriverDTO driver = service.getSelectedDriver(name);
         return new ResponseUtil("200"," Success.!",driver);
     }

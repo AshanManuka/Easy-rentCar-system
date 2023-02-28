@@ -89,4 +89,40 @@ $('#driver').on('change', function() {
 
 function loadDatatoField(value){
 
+    $.ajax({
+        url: baseURL+"driver",
+        method: "get",
+        dataType: "json",
+        success: function (resp) {
+
+            for (let driver of resp.data) {
+                let nam = driver.name;
+                let con = driver.contact;
+                let mail = driver.email;
+                let add = driver.address;
+
+                if (nam === value) {
+                    var d = {
+                        na : nam,
+                        cont : con,
+                        eMail : mail,
+                        addr : add
+                    }
+
+                    $("#twotxtCusName").val(d.na);
+                    $("#twotxtmail").val(d.eMail);
+                    $("#twotxtPassword").val(d.cont);
+                    $("#twotxtContact").val(d.addr);
+
+                }
+            }
+
+
+
+        },
+        error: function (error) {
+            let message = JSON.parse(error.responseText).message;
+            alert(message);
+        }
+    });
 }
