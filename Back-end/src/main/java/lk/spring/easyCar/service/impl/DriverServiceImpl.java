@@ -34,7 +34,10 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public void deleteDriver(int id) {
-
+        if (!repo.existsById(id)){
+            throw new RuntimeException("Item "+id+" Not Available to Delete..!");
+        }
+        repo.deleteById(id);
     }
 
     @Override

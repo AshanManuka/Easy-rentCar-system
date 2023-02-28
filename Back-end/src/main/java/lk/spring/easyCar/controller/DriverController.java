@@ -29,8 +29,9 @@ public class DriverController {
     }
 
     @DeleteMapping(params = "id")
-    public ResponseUtil deleteDriver(String id){
-        return null;
+    public ResponseUtil deleteDriver(int id){
+        service.deleteDriver(id);
+        return new ResponseUtil("200", id+ " : Successfully Deleted", null);
     }
 
     @PutMapping

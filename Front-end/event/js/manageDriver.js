@@ -163,3 +163,21 @@ $("#twoclearBtn").click(function(){
    });
 
 });
+
+// ================ Delete driver ================================
+
+$("#twocancelBtn").click(function(){
+
+    $.ajax({
+        url: baseURL+"driver?id=" + updateId,
+        method: "delete",
+        success: function (resp) {
+            alert(resp.message);
+        },
+        error: function (error) {
+            let message = JSON.parse(error.responseText).message;
+            alert(message);
+        }
+    });
+
+});
