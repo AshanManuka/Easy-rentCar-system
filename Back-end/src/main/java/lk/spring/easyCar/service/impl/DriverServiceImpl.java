@@ -39,7 +39,10 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public void updateDriver(DriverDTO dto) {
-
+        if (!repo.existsById(dto.getId())){
+            throw new RuntimeException("Item "+dto.getId()+" Not Available to Update..!");
+        }
+        repo.save(mapper.map(dto, Driver.class));
     }
 
     @Override

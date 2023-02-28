@@ -3,6 +3,7 @@ let baseURL="http://localhost:8080/app/";
 
 
 var lastId;
+var updateId;
 checkLastId();
 loadData();
 
@@ -96,6 +97,7 @@ function loadDatatoField(value){
         success: function (resp) {
 
             for (let driver of resp.data) {
+                updateId = driver.id;
                 let nam = driver.name;
                 let con = driver.contact;
                 let mail = driver.email;
@@ -117,8 +119,6 @@ function loadDatatoField(value){
                 }
             }
 
-
-
         },
         error: function (error) {
             let message = JSON.parse(error.responseText).message;
@@ -126,3 +126,40 @@ function loadDatatoField(value){
         }
     });
 }
+
+// ========================== Update Driver ====================================
+
+$("#twoclearBtn").click(function(){
+
+    let dName = $("#twotxtCusName").val();
+    let dNic = $("#twotxtmail").val();
+    let dAddress = $("#twotxtPassword").val();
+    let dContact = $("#twotxtContact").val();
+
+
+    var driver = {
+        id : updateId,
+        name : dName,
+        contact : dContact,
+        nic : dNic,
+        address : dAddress
+    }
+
+    $.ajax({
+        url: baseURL+'driver',
+        method: 'put',
+        contentType:"application/json",
+        data:JSON.stringify(driver),
+        dataType:"json",
+        success: function (res) {
+            alert(res.message);
+            loadData();
+        },
+        error:function (error){
+            let cause= JSON.parse(error.responseText).message;
+            alert(cause);
+        }
+
+   });
+
+});
