@@ -12,7 +12,35 @@ var iThree;
 var iFour;
 var iFive;
 
-//loadData();
+loadAllCars();
+
+
+// ===================load all Class ==========================
+    function loadAllCars(){
+        $.ajax({
+            url: baseURL+'car',
+            method: 'get',
+            dataType: "json",
+            success: function (resp) {
+                for (let c of resp.data) {
+                    let rNo = c.regNo;
+                    let br = c.brand;
+                    let col = c.color;
+                    let dRate = c.dailyRate;
+                    let mRate = c.monthlyRate;
+                    let exKM = c.chargeForExtraKm;
+                    let tr = c.transmissionType;
+                    let fType = c.fuelType;
+
+
+                    var row = "<tr><td>" + rNo + "</td><td>" + br + "</td><td>" + col + "</td><td>" + dRate + "</td><td>" + mRate + "</td><td>" + exKM + "</td><td>" + tr + "</td><td>" + fType + "</td><td>" + "00" + "</td><td>" + `<button value="sample" style="border-radius: 50px; border: #b6d4fe 2px black"><i class="fa-solid fa-trash"></i></button>` + "</td></tr>";
+                    $("#carTable").append(row);
+
+                }
+            }
+        });
+
+    }
 
 
 
