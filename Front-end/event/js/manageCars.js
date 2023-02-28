@@ -3,6 +3,7 @@ let baseURL="http://localhost:8080/app/";
 
 
 var updateId;
+
 var transition;
 var fType;
 var passengerNo;
@@ -13,6 +14,24 @@ var iFour;
 var iFive;
 
 loadAllCars();
+loadRegNumbers();
+
+
+// ==============load data to box============================
+function loadRegNumbers(){
+    $("#regIdBox").empty();
+
+    $.ajax({
+        url: baseURL+'car',
+        method: 'get',
+        dataType: "json",
+        success: function (resp) {
+            for (let car of resp.data) {
+                $("#regIdBox").append(`<option>${car.regNo}</option>`);
+            }
+        }
+    });
+}
 
 
 // ===================load all Class ==========================
