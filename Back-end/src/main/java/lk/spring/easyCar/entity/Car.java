@@ -17,18 +17,16 @@ import java.util.List;
 @Entity
 public class Car {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
     private String regNo;
     private String brand;
     private String color;
-    private String image;
+    private String imageOne;
     private String imageTwo;
     private String imageThree;
     private String imageFour;
     private String imageFive;
     private Boolean isAvailable;
-    private String availableDate;
+    private String availableD;
     private String transmissionType;
     private String fuelType;
     private Double chargeForExtraKm;

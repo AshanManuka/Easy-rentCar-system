@@ -1,7 +1,8 @@
 package lk.spring.easyCar.service.impl;
 
 import lk.spring.easyCar.dto.CarDTO;
-import lk.spring.easyCar.repo.CustomerRepo;
+import lk.spring.easyCar.entity.Car;
+import lk.spring.easyCar.repo.VehicleRepo;
 import lk.spring.easyCar.service.VehicleService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 public class VehicleServiceImpl implements VehicleService {
 
     @Autowired
-    private CustomerRepo repo;
+    private VehicleRepo repo;
 
     @Autowired
     private ModelMapper mapper;
@@ -23,11 +24,14 @@ public class VehicleServiceImpl implements VehicleService {
 
     @Override
     public void saveVehicle(CarDTO dto) {
-
+        /*if (repo.exists(dto.getRegNo())) {
+            throw new RuntimeException("Vehicle "+dto.getRegNo()+" Already Exist..!");
+        }*/
+        repo.save(mapper.map(dto,Car.class));
     }
 
     @Override
-    public void deleteVehicle(int id) {
+    public void deleteVehicle(String id) {
 
     }
 

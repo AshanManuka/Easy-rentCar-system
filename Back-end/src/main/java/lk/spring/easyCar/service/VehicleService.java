@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public interface VehicleService {
     public void saveVehicle(CarDTO dto);
 
-    public void deleteVehicle(int id);
+    public void deleteVehicle(String id);
 
     public void updateVehicle(CarDTO dto);
 

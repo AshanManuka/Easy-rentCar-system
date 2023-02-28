@@ -23,7 +23,7 @@ public class CarDTO {
     private String imageFour;
     private String imageFive;
     private Boolean isAvailable;
-    private String availableDate;
+    private String availableD;
     private String transmissionType;
     private String fuelType;
     private Double chargeForExtraKm;
