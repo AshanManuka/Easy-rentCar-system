@@ -5,6 +5,7 @@ import lk.spring.easyCar.entity.Car;
 import lk.spring.easyCar.repo.VehicleRepo;
 import lk.spring.easyCar.service.VehicleService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,6 +43,6 @@ public class VehicleServiceImpl implements VehicleService {
 
     @Override
     public ArrayList<CarDTO> getAllVehicle() {
-        return null;
+        return mapper.map(repo.findAll(), new TypeToken<ArrayList<CarDTO>>() {}.getType());
     }
 }

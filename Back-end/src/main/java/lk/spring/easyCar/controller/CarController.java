@@ -6,6 +6,8 @@ import lk.spring.easyCar.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+
 @RestController
 @CrossOrigin
 @RequestMapping("/car")
@@ -34,7 +36,8 @@ public class CarController {
 
     @GetMapping
     public ResponseUtil getAllCar(){
-        return null;
+        ArrayList<CarDTO> allCars = vehicleService.getAllVehicle();
+        return new ResponseUtil("200"," Success.!",allCars);
     }
 
     //set more methods to assign for filters
