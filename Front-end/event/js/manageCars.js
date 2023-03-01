@@ -191,6 +191,12 @@ function loadDataToField(){
             $("#transition").val(tempCar.tType);
             $("#fuel").val(tempCar.fType);
             $("#passenger").val("5");
+            iOne = tempCar.i1;
+            iTwo = tempCar.i2;
+            iThree = tempCar.i3;
+            iFour = tempCar.i4;
+            iFive = tempCar.i5;
+
 
         }
     }
@@ -200,9 +206,6 @@ function loadDataToField(){
 // ==================== update details ===========================
 $("#updateBtn").click(function(){
 
-
-
-
 let cBrand = $("#brand").val();
 let cRegId = $("#regId").val();
 let cType = $("#type").val();
@@ -210,6 +213,9 @@ let cColor = $("#color").val();
 let cDReate = $("#DRate").val();
 let cMReate = $("#MRate").val();
 let cExPrice = $("#exPrice").val();
+let tT = $("#transition").val();
+let fT = $("#fuel").val();
+
 
 var vehicle = {
     regNo : cRegId,
@@ -222,8 +228,8 @@ var vehicle = {
     imageFive : iFive,
     isAvailable : true,
     availableD : "2022",
-    transmissionType : transition,
-    fuelType : fType,
+    transmissionType : tT,
+    fuelType : fT,
     chargeForExtraKm : cExPrice,
     dailyRate : cDReate,
     monthlyRate : cMReate
@@ -245,6 +251,6 @@ var vehicle = {
 
     });
 
-    location.reload()
+    location.reload();
 
 });
