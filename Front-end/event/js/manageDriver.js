@@ -3,7 +3,7 @@ let baseURL="http://localhost:8080/app/";
 
 
 var lastId;
-var updateId;
+var selectedNo;
 checkLastId();
 loadData();
 
@@ -153,7 +153,6 @@ $("#twoclearBtn").click(function(){
         dataType:"json",
         success: function (res) {
             alert(res.message);
-            loadData();
         },
         error:function (error){
             let cause= JSON.parse(error.responseText).message;
@@ -162,6 +161,7 @@ $("#twoclearBtn").click(function(){
 
    });
 
+    location.reload();
 });
 
 // ================ Delete driver ================================
@@ -179,5 +179,5 @@ $("#twocancelBtn").click(function(){
             alert(message);
         }
     });
-
+    location.reload();
 });

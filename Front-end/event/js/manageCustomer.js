@@ -76,7 +76,6 @@ function loadAllCustomers(){
                 var row = "<tr><td>" + cId + "</td><td>" + cName + "</td><td>" + cMail + "</td><td>" + cContact + "</td><td>" + `<button value="sample" style="border-radius: 50px; border: #b6d4fe 2px black"><i class="fa-solid fa-trash"></i></button>` + "</td></tr>";
                 $("#cusTable").append(row);
 
-
             }
         }
     });
@@ -112,6 +111,7 @@ $("#acceptBtn").click(function () {
         });
     }
 
+    location.reload();
     deleteRequests();
 
 });

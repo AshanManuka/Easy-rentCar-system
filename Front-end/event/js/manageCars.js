@@ -12,6 +12,8 @@ var iTwo;
 var iThree;
 var iFour;
 var iFive;
+var selectedCar;
+var carList = [];
 
 loadAllCars();
 loadRegNumbers();
@@ -51,9 +53,27 @@ function loadRegNumbers(){
                     let tr = c.transmissionType;
                     let fType = c.fuelType;
 
-
                     var row = "<tr><td>" + rNo + "</td><td>" + br + "</td><td>" + "Car" + "</td><td>" + col + "</td><td>" + dRate + "</td><td>" + mRate + "</td><td>" + exKM + "</td><td>" + tr + "</td><td>" + fType + "</td><td>" + "00" + "</td><td>" + `<button value="sample" style="border-radius: 50px; border: #b6d4fe 2px black"><i class="fa-solid fa-trash"></i></button>` + "</td></tr>";
                     $("#carTable").append(row);
+
+                    var car = {
+                        rN : c.regNo,
+                        bran : c.brand,
+                        co : c.color,
+                        i1 : c.imageOne,
+                        i2 : c.imageTwo,
+                        i3 : c.imageThree,
+                        i4 : c.imageFour,
+                        i5 : c.imageFive,
+                        b : c.isAvailable,
+                        d : c.availableD,
+                        tType : c.transmissionType,
+                        fType : c.fuelType,
+                        cEx : c.chargeForExtraKm,
+                        dr : c.dailyRate,
+                        mR : c.monthlyRate
+                    }
+                    carList.push(car);
 
                 }
             }
@@ -74,6 +94,11 @@ $('#fuel').on('change', function() {
 
 $('#passenger').on('change', function() {
     passengerNo = $(this).val();
+});
+
+$('#regIdBox').on('change', function() {
+    selectedCar = $(this).val();
+    loadDataToField();
 });
 
 
@@ -141,12 +166,36 @@ function saveCar(){
         dataType:"json",
         success: function (res) {
             alert(res.message);
-            //loadData();
         },
         error:function (error){
             let cause= JSON.parse(error.responseText).message;
             alert(cause);
         }
-
     });
+
+    location.reload();
 }
+
+// ==================== load data to Field =======================
+
+function loadDataToField(){
+    for (let i = 0; i < carList.length; i++ ){
+        tempCar = carList[i];
+        if(tempCar.rN === selectedCar){
+            $("#brand").val(tempCar.bran);
+            $("#regId").val(tempCar.rN);
+            $("#color").val(tempCar.co);
+            $("#type").val("Seydan");
+            $("#DRate").val(tempCar.dr);
+            $("#MRate").val(tempCar.mR);
+            $("#exPrice").val(tempCar.cEx);
+            $("#transition").val(tempCar.tType);
+            $("#fuel").val(tempCar.fType);
+            $("#passenger").val("5");
+
+        }
+    }
+}
+
+
+
