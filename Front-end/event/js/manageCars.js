@@ -2,7 +2,6 @@
 let baseURL="http://localhost:8080/app/";
 
 
-var updateId;
 
 var transition;
 var fType;
@@ -198,4 +197,54 @@ function loadDataToField(){
 }
 
 
+// ==================== update details ===========================
+$("#updateBtn").click(function(){
 
+
+
+
+let cBrand = $("#brand").val();
+let cRegId = $("#regId").val();
+let cType = $("#type").val();
+let cColor = $("#color").val();
+let cDReate = $("#DRate").val();
+let cMReate = $("#MRate").val();
+let cExPrice = $("#exPrice").val();
+
+var vehicle = {
+    regNo : cRegId,
+    brand : cBrand,
+    color : cColor,
+    imageOne : iOne,
+    imageTwo : iTwo,
+    imageThree : iThree,
+    imageFour : iFour,
+    imageFive : iFive,
+    isAvailable : true,
+    availableD : "2022",
+    transmissionType : transition,
+    fuelType : fType,
+    chargeForExtraKm : cExPrice,
+    dailyRate : cDReate,
+    monthlyRate : cMReate
+}
+
+    $.ajax({
+        url: baseURL+'car',
+        method: 'put',
+        contentType:"application/json",
+        data:JSON.stringify(vehicle),
+        dataType:"json",
+        success: function (res) {
+            alert(res.message);
+        },
+        error:function (error){
+            let cause= JSON.parse(error.responseText).message;
+            alert(cause);
+        }
+
+    });
+
+    location.reload()
+
+});

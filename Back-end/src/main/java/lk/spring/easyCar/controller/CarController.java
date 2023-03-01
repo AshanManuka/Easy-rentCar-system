@@ -19,7 +19,6 @@ public class CarController {
 
     @PostMapping
     public ResponseUtil saveCar(@RequestBody CarDTO dto){
-        System.out.println(dto);
         vehicleService.saveVehicle(dto);
         return new ResponseUtil("200",dto.getRegNo()+ " Added.!",null);
     }
@@ -30,8 +29,9 @@ public class CarController {
     }
 
     @PutMapping
-    public ResponseUtil updateCar(){
-        return null;
+    public ResponseUtil updateCar(@RequestBody CarDTO dto){
+        vehicleService.updateVehicle(dto);
+        return new ResponseUtil("200",dto.getRegNo()+ " Updated.!",null);
     }
 
     @GetMapping

@@ -38,7 +38,7 @@ public class VehicleServiceImpl implements VehicleService {
 
     @Override
     public void updateVehicle(CarDTO dto) {
-
+        repo.save(mapper.map(dto,Car.class));
     }
 
     @Override
