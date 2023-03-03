@@ -24,7 +24,7 @@ main{
     color: aliceblue;
 }
 
-#btnDiv>button{
+#btnDiv>a>button{
     border-radius: 25px;
     width: 12vw;
     height: 8vh;

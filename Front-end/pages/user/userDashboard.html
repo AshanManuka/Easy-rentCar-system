@@ -87,6 +87,28 @@
        <!-- start feed section -->
        <section id="vehicleFeed">
 
+
+           <!--<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+               <div class="carousel-inner">
+                   <div class="carousel-item active">
+                       <img src="../../event/images/stylish-elegant-woman-car-salon.jpg" class="d-block w-100" alt="...">
+                   </div>
+                   <div class="carousel-item">
+                       <img src="../../event/images/carp123.jpg" class="d-block w-100" alt="...">
+                   </div>
+                   <div class="carousel-item">
+                       <img src="../../event/images/7197355.jpg" class="d-block w-100" alt="...">
+                   </div>
+               </div>
+               <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                   <span class="visually-hidden">Previous</span>
+               </button>
+               <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                   <span class="visually-hidden">Next</span>
+               </button>
+           </div>-->
        </section>
        <!-- End feed section -->
 
@@ -102,5 +124,26 @@
     </main>
    
     <script src="../../event/jQuery/jquery-3.6.1.min.js"></script>
+    <script src="../../event/css/bootstrap/js/bootstrap.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+
+        $("#searchBtn").click(function(){
+            Swal.fire({
+                title: '<img src="../../event/images/carLogo.jpg" width="200px" height="200px"> <img src="../../event/images/carLogo.jpg" width="200px" height="200px"> <img src="../../event/images/carLogo.jpg" width="200px" height="200px"> <img src="../../event/images/carLogo.jpg" width="200px" height="200px">',
+                html:
+                    'Transition : <b>Auto</b> <br> Fuel : <b>Petrol</b> <br> Daily : <b>10000</b> <br> Monthly : <b>100000</b>',
+
+                showCloseButton: true,
+                focusConfirm: false,
+                confirmButtonText:
+                    '<i class="fa-sharp fa-solid fa-cart-shopping"></i> BUY',
+                confirmButtonAriaLabel: 'Thumbs up, great!',
+
+            })
+        });
+
+
+    </script>
 </body>
 </html>
