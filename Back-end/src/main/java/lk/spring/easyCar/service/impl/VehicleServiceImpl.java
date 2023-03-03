@@ -33,7 +33,8 @@ public class VehicleServiceImpl implements VehicleService {
 
     @Override
     public void deleteVehicle(String id) {
-
+        System.out.println(id);
+        repo.deleteById(id);
     }
 
     @Override

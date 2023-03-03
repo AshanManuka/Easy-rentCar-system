@@ -254,3 +254,20 @@ var vehicle = {
     location.reload();
 
 });
+
+// ========================================= Delete Vehicle ===============================================
+
+$("#deleteBtn").click(function(){
+    console.log(selectedCar);
+    $.ajax({
+        url: baseURL+"car?id=" + selectedCar,
+        method: "delete",
+        success: function (resp) {
+            alert(resp.message);
+        },
+        error: function (error) {
+            let message = JSON.parse(error.responseText).message;
+            alert(message);
+        }
+    });
+});

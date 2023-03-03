@@ -25,7 +25,9 @@ public class CarController {
 
     @DeleteMapping(params = "id")
     public ResponseUtil deleteCar(String id){
-        return null;
+        System.out.println(id);
+        vehicleService.deleteVehicle(id);
+        return new ResponseUtil("200",id+ " Deleted.!",null);
     }
 
     @PutMapping
