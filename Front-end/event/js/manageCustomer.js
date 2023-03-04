@@ -5,9 +5,10 @@ let requestList = [];
 
  // ========================= load all Customer =========================
 
-
+bindRowClickEvents();
 loadPendingCustomer();
 loadAllCustomers();
+bindRowClickEvents();
 
 
 // ================== Pending Customers=========================
@@ -73,13 +74,31 @@ function loadAllCustomers(){
                 let cMail = c.email;
                 let cContact = c.contact;
 
-                var row = "<tr><td>" + cId + "</td><td>" + cName + "</td><td>" + cMail + "</td><td>" + cContact + "</td><td>" + `<button value="sample" style="border-radius: 50px; border: #b6d4fe 2px black"><i class="fa-solid fa-trash"></i></button>` + "</td></tr>";
+                var row = "<tr class='nr'><td>" + cId + "</td><td>" + cName + "</td><td>" + cMail + "</td><td>" + cContact + "</td><td>" + `<button type='button' class='rowBtn' style="border-radius: 50px; border: #b6d4fe 2px black"><i class="fa-solid fa-trash"></i></button>` + "</td></tr>";
                 $("#cusTable").append(row);
-
             }
+            bindRowClickEvents();
         }
     });
 }
+
+
+
+function bindRowClickEvents() {
+    $("#cusTable>tbody>tr>td").click(function() {
+         let rows = $(this).closest("tr").text();
+         console.log(rows);
+
+    });
+}
+
+
+// $("#cusTable>tbody>tr>td").click(function() {
+//     // let rows = $("#cusTable>tr");
+//     // console.log(rows);
+//     alert("clickd");
+// });
+
 
 
 
@@ -132,5 +151,9 @@ function deleteRequests() {
         }
     });
 }
+
+
+// =======================================================================
+
 
 
