@@ -21,7 +21,7 @@
     color: aliceblue;
 }
 
-#twobtnDiv>button{
+#twobtnDiv>a>button{
     border-radius: 25px;
     width: 25vw;
     height: 10vh;
@@ -53,5 +53,9 @@
 #freeDevSign>h2{
     color: antiquewhite;
     font-size: 40px;
+}
+
+#registerNew{
+    background-color: #a3fdac;
 }
 
