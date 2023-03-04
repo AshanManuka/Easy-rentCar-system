@@ -74,7 +74,7 @@ function loadAllCustomers(){
                 let cMail = c.email;
                 let cContact = c.contact;
 
-                var row = "<tr class='nr'><td>" + cId + "</td><td>" + cName + "</td><td>" + cMail + "</td><td>" + cContact + "</td><td>" + `<button type='button' class='rowBtn' style="border-radius: 50px; border: #b6d4fe 2px black"><i class="fa-solid fa-trash"></i></button>` + "</td></tr>";
+                var row = "<tr class='nr'><td>" + cId  +"  "+`<button type='button' class='rowBtn' style="border-radius: 50px; border: #b6d4fe 2px black"><i class="fa-solid fa-trash"></i></button>`+ "</td><td>" + cName + "</td><td>" + cMail + "</td><td>" + cContact + "</td></tr>";
                 $("#cusTable").append(row);
             }
             bindRowClickEvents();
@@ -86,21 +86,28 @@ function loadAllCustomers(){
 
 function bindRowClickEvents() {
     $("#cusTable>tbody>tr>td").click(function() {
-         let rows = $(this).closest("tr").text();
-         console.log(rows);
+          //  let rows = $(this).closest("tr").find("td").text();
+         let rows = $(this).text();
+         deleteCustomer(rows);
 
     });
 }
 
+function deleteCustomer(cusId){
 
-// $("#cusTable>tbody>tr>td").click(function() {
-//     // let rows = $("#cusTable>tr");
-//     // console.log(rows);
-//     alert("clickd");
-// });
+    $.ajax({
+        url: baseURL+"customer?id=" + cusId,
+        method: "delete",
+        success: function (resp) {
+            alert(resp.message);
+        },
+        error: function (error) {
+            let message = JSON.parse(error.responseText).message;
+            alert(message);
+        }
+    });
 
-
-
+}
 
 
 

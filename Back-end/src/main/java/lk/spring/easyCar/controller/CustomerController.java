@@ -37,8 +37,9 @@ public class CustomerController {
     }
 
     @DeleteMapping(params = "id")
-    public ResponseUtil deleteCustomer(String id){
-        return null;
+    public ResponseUtil deleteCustomer(int id){
+        service.deleteCustomer(id);
+        return new ResponseUtil("200", id+ " : Successfully Deleted", null);
     }
 
     @PutMapping
