@@ -5,7 +5,10 @@
 
 // ======================== check last Customer ========================================
  var lastId;
+ var lastPendingId;
+ var lastCustomerId;
 checkLastId();
+
 
 function checkLastId(){
 
@@ -18,9 +21,33 @@ function checkLastId(){
             for (let cus of resp.data) {
                 idList.push(cus.id);
             }
-            lastId = idList.slice(-1);
+            lastCustomerId = idList.slice(-1);
+            checkLastPending();
         }
     });
+}
+
+
+function checkLastPending(){
+
+    $.ajax({
+        url: baseURL+'pendingCustomer',
+        method: 'get',
+        dataType: "json",
+        success: function (resp) {
+            const idList = [0];
+            for (let cus of resp.data) {
+                idList.push(cus.id);
+            }
+            lastPendingId = idList.slice(-1);
+            if(lastCustomerId > lastPendingId){
+                lastId = lastCustomerId;
+            }else{
+                lastId = lastPendingId;
+            }
+        }
+    });
+
 }
 
 
@@ -32,7 +59,6 @@ $("#twologinBtn").click(function(){
 });
 
 function saveCustomer(){
-
     let cusId = parseInt(lastId)+1;
     let name = $("#twotxtCusName").val();
     let eMail = $("#twotxtmail").val();
@@ -59,6 +85,8 @@ function saveCustomer(){
         dataType:"json",
         success: function (res) {
             alert(res.message);
+           // lastId = parseInt(lastId)+1;
+            checkLastId();
         },
         error:function (error){
             let cause= JSON.parse(error.responseText).message;

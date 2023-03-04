@@ -64,8 +64,47 @@ function createAdmin(){
             let cause= JSON.parse(error.responseText).message;
             alert(cause);
         }
-
     });
 
     location.reload();
 }
+
+
+// ======================== update admin =============================
+
+        $("#").click(function(){
+
+            let admName = $("#twotxtCusName").val();
+            let admNic = $("#twotxtNic").val();
+            let admMail = $("#twoMail").val();
+            let admPassword = $("#twotxtPassword").val();
+
+            var admin = {
+                id : /*getId*/"id",
+                name : adminName,
+                nic : adminNic,
+                email : adminMail,
+                password : adminPassword
+            }
+
+            $.ajax({
+                url: baseURL+'admin',
+                method: 'put',
+                contentType:"application/json",
+                data:JSON.stringify(admin),
+                dataType:"json",
+                success: function (res) {
+                    alert(res.message);
+                },
+                error:function (error){
+                    let cause= JSON.parse(error.responseText).message;
+                    alert(cause);
+                }
+
+            });
+
+
+        });
+
+
+// ===================== Delete Admin ========================
