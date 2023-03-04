@@ -48,13 +48,17 @@ $("#searchBtn").click(function(){
 
 
                         var ii = "../../event/images/cars/alto2.jpg"
-                        if (iOne != null){
 
-                            var e = $(`<div style="display:block; background-color: rgba(16,0,3,0.25); border-radius:5px; float:left;width:`+300+`px; height:`+320+`px; margin-top:`+50+`px;margin-left:`+50+`px;border:1px solid #CCCCCC;"><img src=`+ii+` alt="image" style="width:`+200+`px; height:`+230+`px; margin-left:`+50+`px; margin-top:`+20+`px; border-radius: 5px"><br><br><button style="border-radius: 20px; border: black solid 1px; margin-left: 70px; width: 150px; height: 30px; background-color: #87d0de"><b>More</b></button> </div>`);
+
+                        var perPart = "../../event/images/cars/";
+                        var lastPart = iOne.substring(12,21);
+                        var fullPart = perPart+lastPart;
+                        console.log(fullPart);
+
+                            var e = $(`<div style="display:block; background-color: rgba(16,0,3,0.25); border-radius:5px; float:left;width:`+300+`px; height:`+320+`px; margin-top:`+50+`px;margin-left:`+50+`px;border:1px solid #CCCCCC;"><img src=`+fullPart+` alt="image" style="width:`+200+`px; height:`+230+`px; margin-left:`+50+`px; margin-top:`+20+`px; border-radius: 5px"><br><br><button style="border-radius: 20px; border: black solid 1px; margin-left: 70px; width: 150px; height: 30px; background-color: #87d0de"><b>More</b></button> </div>`);
                             e.attr('id', 'carId');
                             $('#vehicleFeed').append(e);
 
-                        }
 
 
                         // var car = {
