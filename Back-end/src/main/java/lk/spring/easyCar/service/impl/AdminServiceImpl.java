@@ -2,12 +2,10 @@ package lk.spring.easyCar.service.impl;
 
 import lk.spring.easyCar.dto.AdminDTO;
 import lk.spring.easyCar.entity.Admin;
-import lk.spring.easyCar.entity.Car;
-import lk.spring.easyCar.entity.User;
 import lk.spring.easyCar.repo.AdminRepo;
-import lk.spring.easyCar.repo.CustomerRepo;
 import lk.spring.easyCar.service.AdminService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,9 +25,9 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public void saveAdmin(AdminDTO dto) {
-//        if (repo.existsById(dto.getId())) {
-//            throw new RuntimeException("Admin "+dto.getId()+" Already Exist..!");
-//        }
+        if (repo.existsById(dto.getId())) {
+            throw new RuntimeException("Admin "+dto.getId()+" Already Exist..!");
+        }
          repo.save(mapper.map(dto,Admin.class));
         System.out.println(dto);
     }
@@ -46,6 +44,8 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public ArrayList<AdminDTO> getAllAdmin() {
-        return null;
+        return mapper.map(repo.findAll(), new TypeToken<ArrayList<AdminDTO>>() {}.getType());
     }
+
+
 }

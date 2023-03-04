@@ -1,10 +1,13 @@
 package lk.spring.easyCar.controller;
 
 import lk.spring.easyCar.dto.AdminDTO;
+import lk.spring.easyCar.dto.CarDTO;
 import lk.spring.easyCar.service.AdminService;
 import lk.spring.easyCar.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 
 @RestController
 @CrossOrigin
@@ -32,7 +35,8 @@ public class AdminController {
 
     @GetMapping
     public ResponseUtil getAllAdmin(){
-        return null;
+        ArrayList<AdminDTO> allAdmins = service.getAllAdmin();
+        return new ResponseUtil("200"," Success.!",allAdmins);
     }
 
 

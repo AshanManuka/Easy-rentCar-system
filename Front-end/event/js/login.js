@@ -3,7 +3,7 @@
     let baseURL = "http://localhost:8080/app/";
 
 
-// ======================== Save Customer ========================================
+// ======================== check last Customer ========================================
  var lastId;
 checkLastId();
 
@@ -19,10 +19,13 @@ function checkLastId(){
                 idList.push(cus.id);
             }
             lastId = idList.slice(-1);
-            alert(lastId);
         }
     });
 }
+
+
+
+// ======================== Save Customer ========================================
 
 $("#twologinBtn").click(function(){
     saveCustomer();

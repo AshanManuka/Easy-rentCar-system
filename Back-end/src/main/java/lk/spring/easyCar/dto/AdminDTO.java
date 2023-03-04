@@ -13,7 +13,7 @@ import lombok.ToString;
 public class AdminDTO {
     private int id;
     private String name;
-    private String contact;
+    private String nic;
     private String email;
-    private String address;
+    private String password;
 }
