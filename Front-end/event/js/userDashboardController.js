@@ -66,7 +66,6 @@ $("#searchBtn").click(function(){
                             $('#vehicleFeed').append(e);
                             idCount++;
 
-
                     }
                     bindDiv();
 

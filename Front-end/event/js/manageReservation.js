@@ -2,7 +2,12 @@
 
 
 loadRequest();
+lastReservation();
 // ====================== load requests ========================
+
+    var rowId = 1;
+    const reqList = [];
+    var lastResId;
 
   function loadRequest() {
       $.ajax({
@@ -10,7 +15,7 @@ loadRequest();
           method: 'get',
           dataType: "json",
           success: function (res) {
-              const reqList = [];
+              // const reqList = [];
               for (let request of res.data) {
                   let rId = request.id;
                   let upDate = request.pickupDate;
@@ -32,10 +37,11 @@ loadRequest();
                   reqList.push(req);
                   console.log(reqList)
 
-                  var row = "<tr class='nr'><td>" + uMail + "</td><td>" + vehId + "</td><td>" + driv + "</td><td>" + pymnt + "</td><td>"+`<button class="acceptBtn" style="border-radius: 50px; border: #b6d4fe 2px black"><i class="fa-sharp fa-solid fa-check"></i></button>`+" </td></tr>";
+                  var row = "<tr class='nr'><td style='background-color: rgba(250,11,34,0.25)'>" + rId + "</td><td>" + uMail + "</td><td>" + vehId + "</td><td>" + driv + "</td><td>" + pymnt + "</td><td>"+`<button class="acceptBtn" id=`+rowId+` style="border-radius: 50px; border: #b6d4fe 2px black"><i class="fa-sharp fa-solid fa-xmark"></i></button>`+" </td></tr>";
                   $("#reqTable").append(row);
-
+                  rowId++;
               }
+              bindRow();
           },
           error: function (error) {
               let cause = JSON.parse(error.responseText).message;
@@ -43,3 +49,72 @@ loadRequest();
           }
       })
   }
+
+
+
+ function bindRow(){
+     $("#reqTable > tbody > tr > td").click(function() {
+          let count = $(this).text();
+          denyRequest(count);
+
+     });
+
+     }
+
+
+ function denyRequest(rId){
+
+     $.ajax({
+         url: baseURL+"reservationReq?code=" + rId,
+         method: "delete",
+         success: function (resp) {
+             loadRequest();
+             alert(resp.message);
+         },
+         error: function (error) {
+             let message = JSON.parse(error.responseText).message;
+             alert(message);
+         }
+     });
+
+ }
+
+
+  function lastReservation(){
+      $.ajax({
+          url: baseURL + 'reservation',
+          method: 'get',
+          dataType: "json",
+          success: function (res) {
+               const resIdList = [0];
+              for (let request of res.data) {
+                  resIdList.push(request.id);
+              }
+              lastResId = resIdList.slice(-1);
+          },
+          error: function (error) {
+              let cause = JSON.parse(error.responseText).message;
+              alert(cause);
+          }
+      })
+  }
+
+
+  function setPayment(){
+      var amount = [];
+      let pId = lastResId;
+      let pDate = "22-05-2023";
+      let valu = 25000;
+
+      var payment = {
+          id : pId,
+          date : pDate,
+          value : valu
+      }
+      amount.push(payment);
+      return amount;
+  }
+
+
+  // ================== save Reservation ====================
+
