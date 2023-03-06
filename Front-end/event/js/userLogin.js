@@ -38,6 +38,8 @@ $("#loginBtn").click(function(){
 
                          if (cMail === uName && cPassword === pWord){
                              alert("you are login..!!");
+                             $("#txtUserName").val(" ");
+                             $("#txtPassword").val(" ");
                              window.location.replace("userDashboard.html");
                          }
 
