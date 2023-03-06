@@ -27,4 +27,10 @@ public class ReservationRequestController {
         ArrayList<ReservationReqDTO> allRequests = service.getAllRequest();
         return new ResponseUtil("200"," Success.!",allRequests);
     }
+
+    @DeleteMapping(params = "code")
+    public ResponseUtil deleteItem(int code) {
+        service.DeleteRequest(code);
+        return new ResponseUtil("200", code+ " : Successfully Deleted", null);
+    }
 }

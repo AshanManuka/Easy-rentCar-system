@@ -31,8 +31,11 @@ public class ReservationRequestImpl implements ReservationRequest {
     }
 
     @Override
-    public void DeleteRequest() {
-
+    public void DeleteRequest(int id) {
+        if (!Repo.existsById(id)){
+            throw new RuntimeException("Item "+id+" Not Available to Delete..!");
+        }
+        Repo.deleteById(id);
     }
 
     @Override

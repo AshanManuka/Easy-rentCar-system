@@ -6,6 +6,6 @@ import java.util.ArrayList;
 
 public interface ReservationRequest {
     public void saveRequest(ReservationReqDTO dto);
-    public void DeleteRequest();
+    public void DeleteRequest(int id);
     public ArrayList<ReservationReqDTO> getAllRequest();
 }
