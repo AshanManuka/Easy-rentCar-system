@@ -66,25 +66,6 @@ $("#searchBtn").click(function(){
                             idCount++;
 
 
-
-                        // var car = {
-                        //     rN : c.regNo,
-                        //     bran : c.brand,
-                        //     co : c.color,
-                        //     i1 : c.imageOne,
-                        //     i2 : c.imageTwo,
-                        //     i3 : c.imageThree,
-                        //     i4 : c.imageFour,
-                        //     i5 : c.imageFive,
-                        //     b : c.isAvailable,
-                        //     d : c.availableD,
-                        //     tType : c.transmissionType,
-                        //     fType : c.fuelType,
-                        //     cEx : c.chargeForExtraKm,
-                        //     dr : c.dailyRate,
-                        //     mR : c.monthlyRate
-                        // }
-
                     }
                     bindDiv();
 
