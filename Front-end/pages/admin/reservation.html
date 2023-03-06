@@ -27,10 +27,10 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th scope="col">Reservation Id</th>
                     <th scope="col">Customer Name</th>
                     <th scope="col">Car Brand</th>
-                    <th scope="col">Driver Stat</th>
+                    <th scope="col">Driver Status</th>
+                    <th scope="col">Payment Status</th>
                     <th scope="col">Option</th>
                 </tr>
                 </thead>
@@ -43,13 +43,6 @@
                     <td><button value="sample" style="border-radius: 50px; border: #b6d4fe 2px black"><i class="fa-sharp fa-solid fa-check"></i></button></td>
                 </tr>
 
-                <tr>
-                <td>001</td>
-                <td>Sample</td>
-                <td>Sample</td>
-                <td>Sample</td>
-                <td><button value="sample" style="border-radius: 50px; border: #b6d4fe 2px black"><i class="fa-sharp fa-solid fa-check"></i></button></td>
-                </tr>
                 </tbody>
             </table>
         </div>
@@ -60,12 +53,12 @@
     <!--All Reservation-->
     <div class="row" id="freeDivOne">
             <div class="col-12" id="freeDivTwo"></div>
-            <h2><b>All Reservations</b></h2>
+            <h2><b>Incomplete Reservations</b></h2>
         <div class="col-12" id="freeDivThree"></div>
     </div>
 
     <div class="row">
-        <div class="col-2></div>
+        <div class="col-2"></div>
       <div class="col-8">
         <table class="table">
             <thead>
@@ -97,11 +90,15 @@
         </table>
 
       </div>
-        <div class="col-2></div>
+        <div class="col-2"></div>
     </div>
 
 
 </main>
 
+
+<script src="../../event/jQuery/jquery-3.6.1.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../../event/js/manageReservation.js"></script>
 </body>
 </html>
