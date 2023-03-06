@@ -75,3 +75,28 @@
 
 /*===================== Reservation Area ======================*/
 
+#resBtn{
+    border-radius: 20px;
+    background-color: #7bea6e;
+    width : 250px;
+    height: 60px;
+    margin-left: 50px;
+    margin-top: 80px;
+}
+
+#cancelBtn{
+    border-radius: 20px;
+    background-color: #fa6254;
+    width : 250px;
+    height: 60px;
+    margin-left: 50px;
+}
+
+#line{
+    border-right: #2c3034 2px solid;
+}
+
+#reservationSection{
+    border: white 4px solid;
+    border-radius: 10px;
+}
