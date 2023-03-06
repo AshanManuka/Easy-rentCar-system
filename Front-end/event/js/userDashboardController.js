@@ -116,23 +116,4 @@ function bindDiv(){
 }
 
 
-
-      // function checkMoreDetails() {
-      //     //set id
-      //       $("#1").click(function(){
-      //
-      //         Swal.fire({
-      //             title: '<img src='+fullPartTwo+' width="200px" height="200px"> <img src='+fullPartThree+' width="200px" height="200px"> <img src='+fullPartFour+' width="200px" height="200px"> <img src='+fullPartFive+' width="200px" height="200px">',
-      //             html:
-      //                 'Transition : <b>'+tr+'</b> <br> Fuel : <b>'+fType+'</b> <br> Daily : <b>'+dRate+'</b> <br> Monthly : <b>'+mRate+'</b> <br> Extra KM : <b>'+exKM+'</b>',
-      //
-      //             showCloseButton: true,
-      //             focusConfirm: false,
-      //             confirmButtonText:
-      //                 '<i class="fa-sharp fa-solid fa-cart-shopping"></i> BUY',
-      //             confirmButtonAriaLabel: 'Thumbs up, great!',
-      //
-      //         })
-      //
-      //     });
-      // }
+// =============================== Make Reservation =============================
