@@ -97,8 +97,64 @@
             <img src="../../event/images/callIcon.jpg" alt="callLogo" id="callLogo">
        </div>
        <!-- End call section -->
-   
-   
+
+
+<!--Reservation Section-->
+        <section id="reservationSection">
+            <br><br>
+            <div class="row">
+                <div class="col-5"></div>
+                <div class="col-3"><h1><b>Reservation</b></h1></div>
+                <div class="col-4"></div>
+            </div>
+            <br><br><br>
+
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-2">
+                    <h2><b>Vehicle : </b></h2><br>
+                    <h2><b>Transition : </b></h2><br>
+                    <h2><b>Fuel : </b></h2><br>
+                    <h2><b>Passenger : </b></h2><br><br>
+
+
+
+                </div>
+                <div class="col-3">
+                    <h2 id="carBrand"><b>Toyota</b></h2><br>
+                    <h2 id="carTransition"><b>Auto </b></h2><br>
+                    <h2 id="carFuel"><b>Petrol</b></h2><br>
+                    <h2 id="carPassenger"><b>05</b></h2><br><br>
+
+                </div>
+                <div class="col-2">
+                    <h2><b>Start : </b></h2>
+                    <input type="datetime-local"><br><br>
+                    <h2><b>End : </b></h2>
+                    <input type="datetime-local"><br><br>
+
+                    <input type="checkbox" value="yes" id="withDriver">
+                    <label for="withDriver"><h5><b>With Driver</b></h5></label><br>
+                    <input type="checkbox" value="yes" id="withoutDriver">
+                    <label for="withoutDriver"><h5><b>Without Driver</b></h5></label>
+                    <br><br>
+
+                    <h1 id="totalH"><b>Total : 00 </b></h1>
+
+
+                </div>
+                <div class="col-3">
+                    <button><h3><b>Done</b></h3></button>
+                </div>
+            </div>
+
+        </section>
+
+
+
+
+<!--Reservation Section-->
+
    
    
     </main>
@@ -107,6 +163,10 @@
     <script src="../../event/css/bootstrap/js/bootstrap.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../../event/js/userDashboardController.js"></script>
+
+    <script>
+        alert(uName);
+    </script>
 
 </body>
 </html>

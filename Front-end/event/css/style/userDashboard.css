@@ -61,7 +61,7 @@
     width: 75px;
     height: 75px;
     border-radius: 50px;
-    border: 8px solid rgb(4, 83, 70);
+    border: 8px solid rgba(7, 245, 31, 0.45);
     top: 85%;
     left: 90%;
 }
@@ -72,3 +72,6 @@
     border-radius: 50px;
     margin: 0%;
 }
+
+/*===================== Reservation Area ======================*/
+

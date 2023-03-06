@@ -6,11 +6,10 @@ var carList =[];
 var perPart = "../../event/images/cars/";
 loadAllCars();
 
-
-
 $("#searchBtn").click(function(){
 
 });
+
 
 
 
@@ -114,6 +113,7 @@ function bindDiv(){
 
     })
 }
+
 
 
 // =============================== Make Reservation =============================

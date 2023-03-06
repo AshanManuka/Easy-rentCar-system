@@ -1,11 +1,10 @@
 
-  let baseURL = "http://localhost:8080/app/";
-
+    let baseURL = "http://localhost:8080/app/";
 
 
 // ================ get Data ==================
   var uName;
-  var pWord
+  var pWord;
 
 
 $("#loginBtn").click(function(){
@@ -15,10 +14,6 @@ $("#loginBtn").click(function(){
     loadCustomers();
 
 });
-
-
-
-
 
 
 
@@ -37,10 +32,18 @@ $("#loginBtn").click(function(){
                          let cPassword = c.password;
 
                          if (cMail === uName && cPassword === pWord){
-                             alert("you are login..!!");
-                             $("#txtUserName").val(" ");
-                             $("#txtPassword").val(" ");
+
+                             Swal.fire({
+                                 position: 'bottom-end',
+                                 icon: 'success',
+                                 title: 'Logged In',
+                                 showConfirmButton: false,
+                                 timer: 1500
+                             })
+
                              window.location.replace("userDashboard.html");
+
+
                          }
 
                      }
