@@ -7,6 +7,7 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 
 @Data
@@ -19,13 +20,14 @@ public class ReservationDetails {
     private int id;
 
     private LocalDate pickupDate;
-    private String pickupLocation;
     private LocalDate finishDate;
-    private String finishLocation;
+
+    @OneToMany(mappedBy = "reservationDetails", cascade = CascadeType.ALL)
+    private List<Payment> paymentList;
 
     @ManyToOne
-    @JoinColumn(name = "reservationId", referencedColumnName = "id")
-    private Reservation reservation;
+    @JoinColumn(name = "userId", referencedColumnName = "id")
+    private User user;
 
     @ManyToOne
     @JoinColumn(name = "carId", referencedColumnName = "regNo")

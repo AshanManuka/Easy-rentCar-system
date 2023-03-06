@@ -21,6 +21,6 @@ public class Payment {
     private Double value;
 
     @ManyToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "reservationId", referencedColumnName = "id")
-    private Reservation reservation;
+    @JoinColumn(name = "reservationDetailsId", referencedColumnName = "id")
+    private ReservationDetails reservationDetails;
 }

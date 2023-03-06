@@ -28,5 +28,5 @@ public class User {
     private String nicImage;
 
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
-    private List<Reservation> reservationList;
+    private List<ReservationDetails> reservationList;
 }

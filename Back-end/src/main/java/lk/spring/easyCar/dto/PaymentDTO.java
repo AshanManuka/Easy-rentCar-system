@@ -1,6 +1,5 @@
 package lk.spring.easyCar.dto;
 
-import lk.spring.easyCar.entity.Reservation;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,5 +16,5 @@ public class PaymentDTO {
     private int id;
     private LocalDate date;
     private Double value;
-    private Reservation reservation;
+    private ReservationDetailsDTO reservations;
 }

@@ -100,3 +100,10 @@
     border: white 4px solid;
     border-radius: 10px;
 }
+
+#conMail{
+    border-radius: 10px;
+    width: 85%;
+    height: 35px;
+    border: 1px solid wheat;
+}

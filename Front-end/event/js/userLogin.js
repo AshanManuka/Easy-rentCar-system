@@ -17,8 +17,6 @@ $("#loginBtn").click(function(){
 
 
 
-
-
 // =============== load Users ======================
 
   function loadCustomers(){

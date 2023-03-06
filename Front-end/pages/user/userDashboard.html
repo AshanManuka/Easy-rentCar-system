@@ -129,9 +129,9 @@
                 </div>
                 <div class="col-3">
                     <h2><b>Start : </b></h2>
-                    <input type="datetime-local"><br><br>
+                    <input type="datetime-local" id="upTime"><br><br>
                     <h2><b>End : </b></h2>
-                    <input type="datetime-local"><br><br>
+                    <input type="datetime-local" id="downTime"><br><br>
 
                     <input type="checkbox" value="yes" id="withDriver">
                     <label for="withDriver"><h5><b>With Driver</b></h5></label><br>
@@ -139,7 +139,9 @@
                     <label for="withoutDriver"><h5><b>Without Driver</b></h5></label>
                     <br><br>
 
-                    <h1 id="totalH"><b>Total : 00 </b></h1>
+                    <h1 id="totalH"><b>Total : 00 </b></h1><br><br>
+                    <label for="conMail"><h4><b>E-Mail For Confirm , </b></h4></label>
+                    <input type="text" placeholder="sample@gmail.com" id="conMail">
 
 
                 </div>
@@ -171,10 +173,5 @@
     <script src="../../event/css/bootstrap/js/bootstrap.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../../event/js/userDashboardController.js"></script>
-
-    <script>
-        alert(uName);
-    </script>
-
 </body>
 </html>

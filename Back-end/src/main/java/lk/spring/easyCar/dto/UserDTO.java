@@ -1,6 +1,5 @@
 package lk.spring.easyCar.dto;
 
-import lk.spring.easyCar.entity.Reservation;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,5 +21,5 @@ public class UserDTO {
     private String nicImage;
 
 
-    private List<Reservation> reservationList;
+    private List<ReservationDetailsDTO> reservationList;
 }

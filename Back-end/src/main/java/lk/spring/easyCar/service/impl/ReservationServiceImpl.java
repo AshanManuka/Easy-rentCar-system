@@ -1,9 +1,11 @@
 package lk.spring.easyCar.service.impl;
 
-import lk.spring.easyCar.dto.ReservationDTO;
+import lk.spring.easyCar.dto.CarDTO;
+import lk.spring.easyCar.dto.ReservationDetailsDTO;
 import lk.spring.easyCar.repo.CustomerRepo;
 import lk.spring.easyCar.service.ReservationService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +24,7 @@ public class ReservationServiceImpl implements ReservationService {
 
 
     @Override
-    public void saveReservation(ReservationDTO dto) {
+    public void saveReservation(ReservationDetailsDTO dto) {
 
     }
 
@@ -32,12 +34,12 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     @Override
-    public void updateReservation(ReservationDTO dto) {
+    public void updateReservation(ReservationDetailsDTO dto) {
 
     }
 
     @Override
-    public ArrayList<ReservationDTO> getAllReservation() {
-        return null;
+    public ArrayList<ReservationDetailsDTO> getAllReservation() {
+        return mapper.map(repo.findAll(), new TypeToken<ArrayList<ReservationDetailsDTO>>() {}.getType());
     }
 }

@@ -2,6 +2,8 @@
 
         let baseURL = "http://localhost:8080/app/";
 
+
+$("#reservationSection").css('display', 'none' );
 var carList =[];
 var perPart = "../../event/images/cars/";
 loadAllCars();
@@ -11,9 +13,11 @@ $("#searchBtn").click(function(){
 });
 
 
-
-
 // ============================ load all Cars on feed ===============================
+
+
+
+
 
         var idCount = 1;
 
@@ -24,6 +28,7 @@ $("#searchBtn").click(function(){
                 dataType: "json",
                 success: function (resp) {
                     for (let c of resp.data) {
+                        let reg = c.regNo;
                         let br = c.brand;
                         let dRate = c.dailyRate;
                         let mRate = c.monthlyRate;
@@ -37,6 +42,7 @@ $("#searchBtn").click(function(){
                         let iFive = c.imageFive;
 
                         var car = {
+                            re : reg,
                             bra : br,
                             dr : dRate,
                             mr : mRate,
@@ -51,13 +57,9 @@ $("#searchBtn").click(function(){
                         carList.push(car);
 
 
-
-
                         var lastPartOne = iOne.substring(12,21);
-
                         var fullPartOne = perPart+lastPartOne;
 
-                        console.log("id Count"+idCount);
 
                             var e = $(`<div style="display:block; background-color: rgba(16,0,3,0.25); border-radius:5px; float:left;width:`+375+`px; height:`+320+`px; margin-top:`+50+`px;margin-left:`+50+`px;border:1px solid #CCCCCC;"><img src=`+fullPartOne+` alt="image" style="width:`+350+`px; height:`+230+`px; margin-left:`+13+`px; margin-top:`+20+`px; border-radius: 5px"><br><br><button style="border-radius: 20px; border: black solid 1px; margin-left: 100px; width: 150px; height: 30px; background-color: #87d0de"><b>More</b></button><h5 style="display: none">`+idCount+`</h5> </div>`);
                             e.attr('id', idCount);
@@ -74,14 +76,14 @@ $("#searchBtn").click(function(){
         }
 
  // ======================== check details ========================================
+var sVehicleId;
 
 function bindDiv(){
     $("#vehicleFeed > div").click(function(){
         let count = $(this).find("h5").text()
 
         var vehi = carList[count-1];
-        console.log(vehi);
-
+        sVehicleId = vehi;
 
         var lastPartTwo = vehi.i2.substring(12,21);
         var lastPartThree = vehi.i3.substring(12,21);
@@ -102,12 +104,15 @@ function bindDiv(){
                     showCloseButton: true,
                     focusConfirm: false,
                     confirmButtonText:
-                        '<i class="fa-sharp fa-solid fa-cart-shopping"></i> BUY',
+                        '<i class="fa-sharp fa-solid fa-cart-shopping" id="byBtn"></i> BUY',
                     confirmButtonAriaLabel: 'Thumbs up, great!',
 
                 })
 
-
+        $("#byBtn").click(function () {
+            $("#vehicleFeed").css('display', 'none' );
+            $("#reservationSection").css('display', 'inline' );
+        });
 
 
 
@@ -117,3 +122,78 @@ function bindDiv(){
 
 
 // =============================== Make Reservation =============================
+
+        var lastReqId;
+
+$("#resBtn").click(function () {
+    $("#reservationSection").css('display', 'none' );
+    $("#vehicleFeed").css('display', 'inline' );
+    makeId();
+
+});
+
+$("#cancelBtn").click(function () {
+    $("#reservationSection").css('display', 'none' );
+    $("#vehicleFeed").css('display', 'inline' );
+});
+
+
+function makeId(){
+    $.ajax({
+        url: baseURL+'reservationReq',
+        method: 'get',
+        dataType: "json",
+        success: function (resp) {
+            const reqIdList = [0];
+            for (let c of resp.data) {
+                console.log("hhhh : "+c.id)
+                    reqIdList.push(c.id);
+            }
+            lastReqId = reqIdList.slice(-1);
+            makeReservation();
+        }
+
+    });
+}
+
+
+function makeReservation(){
+
+    var resId = parseInt(lastReqId)+1;
+    var upDate = $("#upTime").val();
+    var downDate = $("#downTime").val();
+    var payStatus = "done";
+    var cusMail = $("#conMail").val();
+    var vehiId = sVehicleId.re;
+    var dStatus = "no";
+
+    var reservation = {
+        id : resId,
+        pickupDate : upDate,
+        finishDate : downDate,
+        paymentStatus : payStatus,
+        user : cusMail,
+        car : vehiId,
+        driverStatus : dStatus
+    }
+
+    $.ajax({
+        url: baseURL+'reservationReq',
+        method: 'post',
+        contentType:"application/json",
+        data:JSON.stringify(reservation),
+        dataType:"json",
+        success: function (res) {
+            alert(res.message);
+            //checkLastId();
+        },
+        error:function (error){
+            let cause= JSON.parse(error.responseText).message;
+            alert(cause);
+        }
+
+    });
+
+}
+
+
