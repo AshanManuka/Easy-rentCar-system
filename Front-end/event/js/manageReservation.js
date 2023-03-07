@@ -189,7 +189,7 @@ loadcancelIDS();
 
  function loadcancelIDS(){
      $.ajax({
-         url: baseURL+'customer',
+         url: baseURL+'cancelRequest',
          method: 'get',
          dataType: "json",
          success: function (resp) {
@@ -332,6 +332,34 @@ function deleteRequest(mail,carNo){
 
 
   $("#denyBtn").click(function(){
+      let lId = parseInt(lastCancelId)+1;
+      let uMail = $("#user").val();
+      let lCar = $("#car").val();
+      let lMessage = $("#denyMessage").val();
 
+      var warMessage = {
+          id : lId,
+          userMail : uMail,
+          vehiNo : lCar,
+          message : lMessage
+      }
+
+      $.ajax({
+          url: baseURL+'cancelRequest',
+          method: 'post',
+          contentType:"application/json",
+          data:JSON.stringify(warMessage),
+          dataType:"json",
+          success: function (res) {
+              alert(res.message);
+          },
+          error:function (error){
+              let cause= JSON.parse(error.responseText).message;
+              alert(cause);
+          }
+      });
+
+      deleteRequest(uMail,lCar);
+      loadcancelIDS();
   });
 
