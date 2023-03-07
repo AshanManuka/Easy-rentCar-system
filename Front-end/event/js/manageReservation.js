@@ -221,7 +221,6 @@ function makeNewReservation(){
 
 
 
-
     let resId = $("#resId").val();
     let resDate = $("#upDate").val();
     let redFinishDate = $("#downDate").val();
@@ -240,7 +239,6 @@ function makeNewReservation(){
         driverId : resDriver
     }
 
-    console.log(reservation)
 
 
 
@@ -258,12 +256,19 @@ function makeNewReservation(){
             alert(cause);
         }
     });
-
+    deleteRequest(userMail,resCar);
 }
 
 
 
-
+function deleteRequest(mail,carNo){
+    for (let request of reqList) {
+        if (mail == request.userMail && carNo == request.vehiId){
+            let reqId = request.reId;
+            denyRequest(reqId);
+        }
+    }
+}
 
 
  function denyRequest(rId){
@@ -272,8 +277,8 @@ function makeNewReservation(){
          url: baseURL+"reservationReq?code=" + rId,
          method: "delete",
          success: function (resp) {
-             loadRequest();
              alert(resp.message);
+             loadRequest();
          },
          error: function (error) {
              let message = JSON.parse(error.responseText).message;
