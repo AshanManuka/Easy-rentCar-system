@@ -43,7 +43,7 @@ loadCars();
                   }
                   reqList.push(req);
 
-                  var row = "<tr class='nr'><td style='background-color: rgba(250,11,34,0.25)'>" + rId + "</td><td>" + uMail + "</td><td>" + vehId + "</td><td>" + driv + "</td><td>" + pymnt + "</td><td style='background-color: rgba(36,240,13,0.45)'>"+`<button class="acceptBtn" value=`+rowId+` style="border-radius: 50px; border: #b6d4fe 2px black"><i class="fa-sharp fa-solid fa-check"></i></button>`+" </td></tr>";
+                  var row = "<tr class='nr'><td style='background-color: rgba(250,11,34,0.25)'>" + rId + "</td><td>" + uMail + "</td><td>" + vehId + "</td><td>" + driv + "</td><td>" + pymnt + "</td><td style='background-color: rgba(36,240,13,0.45)'>"+`<button class="acceptBtn" value=`+rowId+` style="border-radius: 50px; border: #b6d4fe 2px black"><i class="fa-sharp fa-solid fa-check"></i></button> `+` &nbsp <button class="denyBtn" value=`+rowId+` style="border-radius: 50px; border: #b6d4fe 2px black"><i class="fa-sharp fa-solid fa-xmark"></i></button>`+" </td></tr>";
                   $("#reqTable").append(row);
                   rowId++;
               }
@@ -59,12 +59,14 @@ loadCars();
 
 
  function bindRow(){
-     $("#reqTable > tbody > tr > td > button").click(function() {
+     $("#reqTable > tbody > tr > td > .acceptBtn ").click(function() {
           let count = $(this).val();
           setReservationData(count);
+     });
 
-          // denyRequest(count);
-
+     $("#reqTable > tbody > tr > td > .denyBtn").click(function() {
+         let denyId = $(this).val();
+         denyRequest(denyId);
      });
 
      }
@@ -278,7 +280,7 @@ function deleteRequest(mail,carNo){
          method: "delete",
          success: function (resp) {
              alert(resp.message);
-             loadRequest();
+             // location.reload();
          },
          error: function (error) {
              let message = JSON.parse(error.responseText).message;
