@@ -6,6 +6,7 @@ lastReservation();
 loadDrivers();
 loadUsers();
 loadCars();
+loadcancelIDS();
 
 // ====================== load requests ========================
 
@@ -15,6 +16,7 @@ loadCars();
     const carList =[];
     const driverList = [];
     var lastResId;
+    var lastCancelId;
 
   function loadRequest() {
       $.ajax({
@@ -185,6 +187,21 @@ loadCars();
  }
 
 
+ function loadcancelIDS(){
+     $.ajax({
+         url: baseURL+'customer',
+         method: 'get',
+         dataType: "json",
+         success: function (resp) {
+             const idList = [0];
+             for (let cus of resp.data) {
+                 idList.push(cus.id);
+             }
+             lastCancelId = idList.slice(-1);
+         }
+     });
+ }
+
 
 
  $("#confirmBtn").click(function(){
@@ -280,7 +297,6 @@ function deleteRequest(mail,carNo){
          method: "delete",
          success: function (resp) {
              alert(resp.message);
-             // location.reload();
          },
          error: function (error) {
              let message = JSON.parse(error.responseText).message;
@@ -311,21 +327,11 @@ function deleteRequest(mail,carNo){
   }
 
 
-  function makePayment(){
-      var amount = [];
-      let pId = lastResId;
-      let pDate = "22-05-2023";
-      let valu = 25000;
-
-      var payment = {
-          id : pId,
-          date : pDate,
-          value : valu
-      }
-      amount.push(payment);
-      return amount;
-  }
+  // ================== deny Reservation ====================
 
 
-  // ================== save Reservation ====================
+
+  $("#denyBtn").click(function(){
+
+  });
 
