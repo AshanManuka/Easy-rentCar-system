@@ -16,14 +16,10 @@
 
 <main id="mainForm" class="container-fluid">
     <div class="row">
-        <div class="col-3">
-            <a href="#"><button id="reqBtn"><h3><b>Today Requests</b></h3></button></a>
-            <br><br>
-            <a href="#"><button id="driverBtn"><h3><b>Available Drivers</b></h3></button></a>
-        </div>
+        <div class="col-1"></div>
 
 <!--request column-->
-        <div class="col-9">
+        <div class="col-10">
             <table class="table" id="reqTable">
                 <thead>
                 <tr>
@@ -37,19 +33,80 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td>001</td>
-                    <td>Sample</td>
-                    <td>Sample</td>
-                    <td>Sample</td>
-                    <td>Sample</td>
-                    <td><button class="acceptBtn" style="border-radius: 50px; border: #b6d4fe 2px black"><i class="fa-sharp fa-solid fa-check"></i></button></td>
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
                 </tr>
 
                 </tbody>
             </table>
         </div>
+        <div class="col-1"></div>
 
     </div>
+
+    <div id="freeDiv" style="height: 100px"></div>
+
+<!--======================  manage Reservation Form  ============================-->
+    <section id="manageForm">
+
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-4">
+                <label for="resId"><h4><b>Reservation Id : </b></h4></label>
+                <input type="text" id="resId"><br><br>
+                <label for="upDate"><h4><b>Pickup Date : </b></h4></label>
+                <input type="text" id="upDate"><br><br>
+                <label for="downDate"><h4><b>Finish Date : </b></h4></label>
+                <input type="text" id="downDate"><br><br>
+            </div>
+            <div class="col-4">
+
+                <label for="payment"><h4><b>Payment : </b></h4></label>
+                <input type="text" id="payment"><br><br>
+                <label for="user"><h4><b>User : </b></h4></label>
+                <input type="text" id="user"><br><br>
+                <label for="car"><h4><b>Car : </b></h4></label>
+                <input type="text" id="car"><br><br>
+
+            </div>
+            <div class="col-2">
+                <label for="drivers"><h4><b>Drivers : </b></h4></label>
+                <select name="driverList" id="drivers"><option value="drivers">driver</option></select><br><br><br>
+                <a href="#"><button id="confirmBtn"><h3><b>Confirm</b></h3></button></a>
+                <br><br>
+                <a href="#"><button id="denyBtn"><h3><b>Deny</b></h3></button></a>
+            </div>
+            <div class="col-1"></div>
+
+
+
+
+        </div>
+
+
+
+
+
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+<!--======================  manage Reservation Form  ============================-->
+
+
+
 
 
     <!--All Reservation-->

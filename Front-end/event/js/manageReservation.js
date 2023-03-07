@@ -37,7 +37,7 @@ lastReservation();
                   reqList.push(req);
                   console.log(reqList)
 
-                  var row = "<tr class='nr'><td style='background-color: rgba(250,11,34,0.25)'>" + rId + "</td><td>" + uMail + "</td><td>" + vehId + "</td><td>" + driv + "</td><td>" + pymnt + "</td><td>"+`<button class="acceptBtn" id=`+rowId+` style="border-radius: 50px; border: #b6d4fe 2px black"><i class="fa-sharp fa-solid fa-xmark"></i></button>`+" </td></tr>";
+                  var row = "<tr class='nr'><td style='background-color: rgba(250,11,34,0.25)'>" + rId + "</td><td>" + uMail + "</td><td>" + vehId + "</td><td>" + driv + "</td><td>" + pymnt + "</td><td style='background-color: rgba(36,240,13,0.45)'>"+`<button class="acceptBtn" id=`+rowId+` style="border-radius: 50px; border: #b6d4fe 2px black"><i class="fa-sharp fa-solid fa-check"></i></button>`+" </td></tr>";
                   $("#reqTable").append(row);
                   rowId++;
               }

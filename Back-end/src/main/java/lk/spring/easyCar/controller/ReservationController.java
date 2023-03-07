@@ -35,6 +35,7 @@ public class ReservationController {
     @GetMapping
     public ResponseUtil getAllReservation(){
         ArrayList<ReservationDetailsDTO> allReservations = service.getAllReservation();
+        System.out.println(allReservations);
         return new ResponseUtil("200"," Success.!",allReservations);
     }
 
