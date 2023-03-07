@@ -7,6 +7,7 @@ loadDrivers();
 loadUsers();
 loadCars();
 loadcancelIDS();
+loadAllReservation();
 
 // ====================== load requests ========================
 
@@ -363,3 +364,35 @@ function deleteRequest(mail,carNo){
       loadcancelIDS();
   });
 
+
+// =========== load all Reservation =================
+
+ function loadAllReservation(){
+
+     $.ajax({
+         url: baseURL + 'reservation',
+         method: 'get',
+         dataType: "json",
+         success: function (res) {
+             for (let reservation of res.data) {
+                 let rId = reservation.id;
+                 let upDate = reservation.pickupDate;
+                 let downDate = reservation.finishDate;
+                 let uMail = reservation.userMail;
+                 let vehId = reservation.carNo;
+                 let payment = reservation.amount;
+
+
+                 var row = "<tr class='nr'><td style='background-color: rgba(250,11,34,0.25)'>" + rId + "</td><td style='background-color: rgba(8,45,229,0.25)'>" + upDate + "</td><td style='background-color: rgba(95,250,11,0.25)'>" + downDate + "</td><td style='background-color: rgba(250,182,11,0.25)'>" + uMail + "</td><td >" + vehId + "</td><td style='background-color: rgba(250,11,34,0.25)'>" + payment + "</td></tr>";
+                 $("#resTable").append(row);
+                 rowId++;
+             }
+             bindRow();
+         },
+         error: function (error) {
+             let cause = JSON.parse(error.responseText).message;
+             alert(cause);
+         }
+     })
+
+ }
