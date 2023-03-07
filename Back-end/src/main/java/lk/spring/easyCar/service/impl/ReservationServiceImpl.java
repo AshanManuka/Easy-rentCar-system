@@ -1,8 +1,9 @@
 package lk.spring.easyCar.service.impl;
 
-import lk.spring.easyCar.dto.CarDTO;
+
 import lk.spring.easyCar.dto.ReservationDetailsDTO;
-import lk.spring.easyCar.repo.CustomerRepo;
+import lk.spring.easyCar.entity.ReservationDetails;
+import lk.spring.easyCar.repo.ReservationDetailsRepo;
 import lk.spring.easyCar.service.ReservationService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 public class ReservationServiceImpl implements ReservationService {
 
     @Autowired
-    private CustomerRepo repo;
+    private ReservationDetailsRepo repo;
 
     @Autowired
     private ModelMapper mapper;
@@ -25,7 +26,11 @@ public class ReservationServiceImpl implements ReservationService {
 
     @Override
     public void saveReservation(ReservationDetailsDTO dto) {
-
+        System.out.println("in service : "+dto);
+        if (repo.existsById(dto.getId())) {
+            throw new RuntimeException("Reservation "+dto.getId()+" Already Exist..!");
+        }
+        repo.save(mapper.map(dto, ReservationDetails.class));
     }
 
     @Override

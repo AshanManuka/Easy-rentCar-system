@@ -20,4 +20,6 @@ public class Schedule {
     private int id;
     private LocalDate pickupDate;
     private LocalDate finishDate;
+    private int driverId;
+
 }

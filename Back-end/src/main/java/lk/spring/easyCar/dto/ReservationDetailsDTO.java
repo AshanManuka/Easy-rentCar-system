@@ -17,10 +17,10 @@ import java.util.ArrayList;
 @ToString
 public class ReservationDetailsDTO {
     private int id;
-    private LocalDate pickupDate;
-    private LocalDate finishDate;
-    private ArrayList<PaymentDTO> paymentList;
-    private UserDTO user;
-    private Car car;
-    private Driver driver;
+    private String pickupDate;
+    private String finishDate;
+    private double amount;
+    private String userMail;
+    private String carNo;
+    private int driverId;
 }

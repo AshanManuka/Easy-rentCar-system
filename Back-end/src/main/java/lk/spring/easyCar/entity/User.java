@@ -26,7 +26,4 @@ public class User {
     private String email;
     private String contact;
     private String nicImage;
-
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
-    private List<ReservationDetails> reservationList;
 }

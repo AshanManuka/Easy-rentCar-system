@@ -22,10 +22,4 @@ public class Driver {
     private String email;
     private String address;
 
-    @OneToMany(mappedBy = "driver",cascade = CascadeType.ALL)
-    private List<ReservationDetails> reservationDetailsList;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "scheduleId", referencedColumnName = "id")
-    private Schedule schedule;
 }

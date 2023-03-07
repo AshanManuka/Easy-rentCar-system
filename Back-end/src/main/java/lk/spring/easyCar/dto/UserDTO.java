@@ -19,7 +19,4 @@ public class UserDTO {
     private String email;
     private String contact;
     private String nicImage;
-
-
-    private List<ReservationDetailsDTO> reservationList;
 }

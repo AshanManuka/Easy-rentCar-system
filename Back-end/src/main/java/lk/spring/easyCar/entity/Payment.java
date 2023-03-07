@@ -19,8 +19,4 @@ public class Payment {
     private int id;
     private LocalDate date;
     private Double value;
-
-    @ManyToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "reservationDetailsId", referencedColumnName = "id")
-    private ReservationDetails reservationDetails;
 }

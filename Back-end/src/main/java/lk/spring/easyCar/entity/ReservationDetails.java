@@ -18,23 +18,11 @@ import java.util.List;
 public class ReservationDetails {
     @Id
     private int id;
-
-    private LocalDate pickupDate;
-    private LocalDate finishDate;
-
-    @OneToMany(mappedBy = "reservationDetails", cascade = CascadeType.ALL)
-    private List<Payment> paymentList;
-
-    @ManyToOne
-    @JoinColumn(name = "userId", referencedColumnName = "id")
-    private User user;
-
-    @ManyToOne
-    @JoinColumn(name = "carId", referencedColumnName = "regNo")
-    private Car car;
-
-    @ManyToOne
-    @JoinColumn(name = "driverId", referencedColumnName = "id")
-    private Driver driver;
+    private String pickupDate;
+    private String finishDate;
+    private double amount;
+    private String userMail;
+    private String carNo;
+    private int driverId;
 
 }

@@ -16,5 +16,4 @@ public class PaymentDTO {
     private int id;
     private LocalDate date;
     private Double value;
-    private ReservationDetailsDTO reservations;
 }

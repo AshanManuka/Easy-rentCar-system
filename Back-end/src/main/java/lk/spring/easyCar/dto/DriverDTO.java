@@ -19,7 +19,4 @@ public class DriverDTO {
     private String contact;
     private String email;
     private String address;
-
-    private List<ReservationDetails> reservationDetailsList;
-    private Schedule schedule;
 }

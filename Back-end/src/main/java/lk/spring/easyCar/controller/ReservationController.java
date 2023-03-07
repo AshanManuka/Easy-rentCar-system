@@ -19,7 +19,9 @@ public class ReservationController {
 
     @PostMapping
     public ResponseUtil makeReservation(@RequestBody ReservationDetailsDTO dto){
-        return null;
+        System.out.println(dto);
+        service.saveReservation(dto);
+        return new ResponseUtil("200",dto.getId()+ " Added.!",null);
     }
 
     @DeleteMapping(params = "id")
