@@ -1,0 +1,20 @@
+
+
+#findBtn{
+    border-radius: 20px;
+    background-color: #059062;
+    width: 70%;
+    height: 50px;
+    border: 1px solid white;
+}
+
+#mailAddress{
+    border-radius: 20px;
+    border: 1px solid black;
+    height: 40px;
+    width: 80%;
+}
+
+#resH{
+    margin-left: 35%;
+}

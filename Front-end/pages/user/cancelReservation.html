@@ -9,15 +9,17 @@
     <link rel="stylesheet" href="../../event/css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="../../event/fonts/css/all.css">
 </head>
-<body>
+<body style="background-color: rgb(90,164,238)">
 
 <div class="row" style="height: 80px"></div>
 <section id="mainSec">
     <div class="row">
-        <div class="col-12"></div>
-        <div class="col-3">
+        <div class="col-12"><h1 id="resH"><b><u>Reservation Requests</u></b></h1></div>
+        <div class="col-12" style="height: 80px"></div>
+        <div class="col-4">
             <label for="mailAddress"><h3><b>Enter E-Mail : </b></h3></label>
-            <input type="text" id="mailAddress">
+            <input type="text" id="mailAddress"><br><br><br>
+            <button id="findBtn"><h4><b>My Requests</b></h4></button>
         </div>
         <div class="col-8">
             <table class="table" id="messageTable">
@@ -36,7 +38,7 @@
             </table>
 
         </div>
-        <div class="col-1"></div>
+
 
     </div>
 </section>
