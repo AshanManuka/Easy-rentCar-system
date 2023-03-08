@@ -8,16 +8,7 @@ var carList =[];
 var perPart = "../../event/images/cars/";
 loadAllCars();
 
-$("#searchBtn").click(function(){
-
-});
-
-
 // ============================ load all Cars on feed ===============================
-
-
-
-
 
         var idCount = 1;
 
@@ -60,6 +51,8 @@ $("#searchBtn").click(function(){
                         var lastPartOne = iOne.substring(12,21);
                         var fullPartOne = perPart+lastPartOne;
 
+   //================= load Box =======================
+                            $("#brand").append(`<option>${br}</option>`);
 
                             var e = $(`<div style="display:block; background-color: rgba(16,0,3,0.25); border-radius:5px; float:left;width:`+375+`px; height:`+320+`px; margin-top:`+50+`px;margin-left:`+50+`px;border:1px solid #CCCCCC;"><img src=`+fullPartOne+` alt="image" style="width:`+350+`px; height:`+230+`px; margin-left:`+13+`px; margin-top:`+20+`px; border-radius: 5px"><br><br><button style="border-radius: 20px; border: black solid 1px; margin-left: 100px; width: 150px; height: 30px; background-color: #87d0de"><b>More</b></button><h5 style="display: none">`+idCount+`</h5> </div>`);
                             e.attr('id', idCount);
@@ -73,6 +66,8 @@ $("#searchBtn").click(function(){
             });
 
         }
+
+
 
  // ======================== check details ========================================
 var sVehicleId;
@@ -184,7 +179,6 @@ function makeReservation(){
         dataType:"json",
         success: function (res) {
             alert(res.message);
-            //checkLastId();
         },
         error:function (error){
             let cause= JSON.parse(error.responseText).message;
@@ -196,18 +190,16 @@ function makeReservation(){
 }
 
 
+// ================ search vehicle ====================
+
+$("#searchBtn").click(function(){
+    let carBrand = $("#brand").val();
+    let passNo = $("#passenger").val();
+    let col = $("#colors").val();
+
+    console.log(carBrand,passNo,col);
 
 
+});
 
-
-
-        // Swal.fire({
-        //     title: 'Custom animation with Animate.css',
-        //     showClass: {
-        //         popup: 'animate__animated animate__fadeInDown'
-        //     },
-        //     hideClass: {
-        //         popup: 'animate__animated animate__fadeOutUp'
-        //     }
-        // })
 

@@ -23,7 +23,7 @@
     color: #eef0f3;
 }
 
-#navDiv>div>button{
+#navDiv>div>a>button{
     background-color: #6c0a0a;
     border-radius: 50px;
     border: 1px solid #686161;

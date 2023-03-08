@@ -15,6 +15,11 @@ function loadAdmin(){
             const idList = [0];
             for (let adm of resp.data) {
                 idList.push(adm.id);
+                $("#twotxtCusName").val(adm.name);
+                $("#twotxtNic").val(adm.nic);
+                $("#twoMail").val(adm.email);
+                // $("#twotxtPassword").val();
+
             }
             lastId = idList.slice(-1);
         }
@@ -72,7 +77,7 @@ function createAdmin(){
 
 // ======================== update admin =============================
 
-        $("#").click(function(){
+        $("#updateBtn").click(function(){
 
             let admName = $("#twotxtCusName").val();
             let admNic = $("#twotxtNic").val();
@@ -80,11 +85,11 @@ function createAdmin(){
             let admPassword = $("#twotxtPassword").val();
 
             var admin = {
-                id : /*getId*/"id",
-                name : adminName,
-                nic : adminNic,
-                email : adminMail,
-                password : adminPassword
+                id : 1,
+                name : admName,
+                nic : admNic,
+                email : admMail,
+                password : admPassword
             }
 
             $.ajax({
