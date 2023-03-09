@@ -106,6 +106,12 @@ function bindDiv(){
         $("#byBtn").click(function () {
             $("#vehicleFeed").css('display', 'none' );
             $("#reservationSection").css('display', 'inline' );
+            $("#carBrand").text(vehi.bra);
+            $("#carTransition").text("Auto");
+            $("#carFuel").text(vehi.ft);
+
+
+
         });
 
 
@@ -118,6 +124,29 @@ function bindDiv(){
 // =============================== Make Reservation =============================
 
         var lastReqId;
+
+$("#withDriver").click(function(){
+    calculateAmount();
+});
+
+$("#withoutDriver").click(function(){
+     calculateAmount();
+})
+
+
+function calculateAmount(){
+     let sDate = $("#upTime").val();
+     let fDate = $("#downTime").val();
+
+   let n1 = parseInt(sDate.substring(8,10));
+   let n2 = parseInt(fDate.substring(8,10));
+
+     let duration = n2 - n1;
+     let amount = duration * 15000;
+     $("#totalH").text(amount)
+}
+
+
 
 $("#resBtn").click(function () {
     $("#reservationSection").css('display', 'none' );
